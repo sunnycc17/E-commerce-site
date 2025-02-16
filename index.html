@@ -10,11 +10,16 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Sunny Delights | A Sweet Dream</title>
   </head>
   <body class="bg-black">
     <!-- HEADER AND NAVI BAR -->
-    <header class="fixed top-0 z-20 w-full" x-data="{ open: false }">
+    <header
+      class="fixed top-0 z-20 w-full border-b border-pink-500"
+      x-data="{ open: false }"
+    >
       <nav
         class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-6"
         aria-label="Global"
@@ -187,15 +192,169 @@
     </header>
 
     <!-- HOME -->
-    <section class="flex justify-center items-center lg:justify-end mt-32">
+    <section
+      class="flex justify-center items-center lg:justify-end mt-32 mb-12"
+    >
       <div class="flex items-center w-full max-w-6xl px-5 space-x-6">
         <!-- Heading Box -->
-        <div class="flex justify-center items-center w-[30%] lg:w-[25%] p-4">
-          <h1
-            class="text-pink-600 uppercase font-bold text-xl sm:text-2xl lg:text-3xl text-center leading-relaxed"
-          >
-            Soft as a Cloud Sweet as a Dream
-          </h1>
+        <div
+          class="text-pink-600 uppercase font-bold text-lg text-center leading-relaxed flex flex-col items-center space-y-2 p-2"
+        >
+          <div class="flex space-x-1">
+            <span
+              data-aos="fade-right"
+              data-aos-delay="100"
+              class="bounce-limited"
+              >S</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="150"
+              class="bounce-limited"
+              >o</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="200"
+              class="bounce-limited"
+              >f</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="250"
+              class="bounce-limited"
+              >t</span
+            >
+          </div>
+
+          <div class="flex space-x-1">
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="300"
+              class="bounce-limited"
+              >A</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="350"
+              class="bounce-limited"
+              >s</span
+            >
+          </div>
+
+          <div class="flex justify-center space-x-1">
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="400"
+              class="bounce-limited"
+              >C</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="450"
+              class="bounce-limited"
+              >l</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="500"
+              class="bounce-limited"
+              >o</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="550"
+              class="bounce-limited"
+              >u</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="600"
+              class="bounce-limited"
+              >d</span
+            >
+          </div>
+
+          <div class="flex space-x-1">
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="650"
+              class="bounce-limited"
+              >S</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="700"
+              class="bounce-limited"
+              >w</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="750"
+              class="bounce-limited"
+              >e</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="800"
+              class="bounce-limited"
+              >e</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="850"
+              class="bounce-limited"
+              >t</span
+            >
+          </div>
+
+          <div class="flex space-x-1">
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="900"
+              class="bounce-limited"
+              >A</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="950"
+              class="bounce-limited"
+              >s</span
+            >
+          </div>
+
+          <div class="flex justify-center space-x-1">
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="1000"
+              class="bounce-limited"
+              >D</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="1050"
+              class="bounce-limited"
+              >r</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="1100"
+              class="bounce-limited"
+              >e</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="1150"
+              class="bounce-limited"
+              >a</span
+            >
+            <span
+              data-aos="zoom-in-down"
+              data-aos-delay="1200"
+              class="bounce-limited"
+              >m</span
+            >
+          </div>
         </div>
 
         <!-- Swiper Container -->
@@ -251,9 +410,50 @@
       </div>
     </section>
 
-    <!--  -->
-  </body>
+    <div class="w-full h-10 divider border-t border-b border-pink-500"></div>
 
+    <!-- ABOUT -->
+    <section
+      class="flex flex-col justify-center items-center p-5 text-center my-10"
+    >
+      <h2
+        class="uppercase p-4 text-pink-700 font-bold text-xl"
+        data-aos="fade-up"
+      >
+        About us
+      </h2>
+
+      <div class="w-[90%] font-bold leading-relaxed text-lg mt-5 space-y-3">
+        <p
+          class="bg-gradient-to-b from-pink-600 to-pink-500 bg-clip-text text-transparent"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Sunny Delights – Bringing Warmth & Sweetness Since 2023!
+        </p>
+
+        <p
+          class="bg-gradient-to-b from-pink-500 to-pink-400 bg-clip-text text-transparent"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          From fluffy marshmallows to rich chocolates
+        </p>
+
+        <p
+          class="bg-gradient-to-b from-pink-400 to-pink-300 bg-clip-text text-transparent"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          Every treat is crafted with love to brighten your day!
+        </p>
+      </div>
+    </section>
+
+    <div class="w-full h-10 divider border-t border-b border-pink-500"></div>
+  </body>
+  <!-- aos -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- alpine js -->
   <script
     src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"

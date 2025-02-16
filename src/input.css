@@ -22,7 +22,8 @@ header {
   background-color: #fadadd;
 }
 
-#sidebar {
+#sidebar,
+.divider {
   background-color: #fadadd;
 }
 
@@ -32,5 +33,20 @@ header {
 
 .home-box {
   background-color: #fadadd;
-  border: 1px dashed black;
+  border: 1px solid #f6339a;
+}
+
+/* Custom bounce animation that stops after 3 seconds */
+@keyframes bounceOnce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.bounce-limited {
+  animation: bounceOnce 1s ease-in-out 1;
 }

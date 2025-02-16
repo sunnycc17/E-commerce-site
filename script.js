@@ -16,3 +16,7 @@ window.onload = function () {
     },
   });
 };
+
+AOS.init({
+  once: true, // Ensures animations happen only once
+});
