@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="public/icon.png" />
     <link rel="stylesheet" href="src/output.css" />
+    <!-- swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <title>Sunny Delights | A Sweet Dream</title>
   </head>
-  <body>
+  <body class="bg-black">
     <!-- HEADER AND NAVI BAR -->
-    <header class="fixed top-0 z-20 w-full bg-red-700" x-data="{ open: false }">
+    <header class="fixed top-0 z-20 w-full" x-data="{ open: false }">
       <nav
         class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-6"
         aria-label="Global"
@@ -32,13 +37,13 @@
             <input
               type="text"
               placeholder="Search candies..."
-              class="w-full pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              class="w-full pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-pink-200 text-white"
             />
             <div
               class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
             >
               <svg
-                class="h-5 w-5 text-gray-500"
+                class="h-5 w-5 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -106,7 +111,8 @@
       <!-- Mobile Sidebar Menu -->
       <div role="dialog" aria-modal="true">
         <div
-          class="fixed inset-y-0 right-0 z-10 w-64 overflow-y-auto bg-red-700 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 text-center"
+          id="sidebar"
+          class="fixed inset-y-0 right-0 z-10 w-64 overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white text-center"
           x-show="open"
           x-cloak
           @click.away="open = false"
@@ -140,35 +146,35 @@
               <div class="space-y-3 py-6">
                 <a
                   href="#"
-                  class="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Chocolates</a
                 >
                 <hr />
                 <a
                   href="#"
-                  class="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300"
                   @click="open = false"
                   >Lollipops</a
                 >
                 <hr />
                 <a
                   href="#"
-                  class="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Candy</a
                 >
                 <hr />
                 <a
                   href="#"
-                  class="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Cookies</a
                 >
                 <hr />
                 <a
                   href="#"
-                  class="block rounded-lg px-3 py-2 text-base font-semibold text-white ease-in-out hover:bg-red-500 transition-colors duration-300"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white ease-in-out hover:bg-red-500 transition-colors duration-300"
                   @click="open = false"
                 >
                   Cakes
@@ -181,10 +187,79 @@
     </header>
 
     <!-- HOME -->
-    <section></section>
+    <section class="flex justify-center items-center lg:justify-end mt-32">
+      <div class="flex items-center w-full max-w-6xl px-5 space-x-6">
+        <!-- Heading Box -->
+        <div class="flex justify-center items-center w-[30%] lg:w-[25%] p-4">
+          <h1
+            class="text-pink-600 uppercase font-bold text-xl sm:text-2xl lg:text-3xl text-center leading-relaxed"
+          >
+            Soft as a Cloud Sweet as a Dream
+          </h1>
+        </div>
+
+        <!-- Swiper Container -->
+        <div class="p-3 mt-0 home-box rounded w-[60%] lg:w-[50%]">
+          <!-- Swiper Main Container -->
+          <div class="swiper w-full rounded-2xl relative">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide relative">
+                <img
+                  src="public/chocolates.png"
+                  alt="Chocolate Hearts"
+                  class="w-full h-[200px] sm:h-[239px] object-cover"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
+                >
+                  <h2 class="text-2xl font-bold">Delicious Chocolate Hearts</h2>
+                  <p class="text-sm">
+                    Indulge in the finest, smoothest chocolates.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide relative">
+                <img
+                  src="public/candy.png"
+                  alt="Pastel Colorful Candy"
+                  class="w-full h-[200px] sm:h-[239px] object-cover"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
+                >
+                  <h2 class="text-2xl font-bold">Colorful Candy Bliss</h2>
+                  <p class="text-sm">A burst of flavors in every bite!</p>
+                </div>
+              </div>
+              <div class="swiper-slide relative">
+                <img
+                  src="public/cakes.png"
+                  alt="Stacked Brownies"
+                  class="w-full h-[200px] sm:h-[239px] object-cover"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
+                >
+                  <h2 class="text-2xl font-bold">Fudgy Brownie Stacks</h2>
+                  <p class="text-sm">Rich, gooey, and irresistible!</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--  -->
   </body>
+
+  <!-- alpine js -->
   <script
     src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
     defer
   ></script>
+  <!-- swiper js -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="/script.js"></script>
 </html>

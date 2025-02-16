@@ -3,3 +3,34 @@
 body {
   background-color: whitesmoke;
 }
+
+[x-cloak] {
+  display: none !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important; /* Active dot color */
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgb(216, 171, 216) !important; /* Active dot color */
+  opacity: 1;
+}
+
+header {
+  background-color: #fadadd;
+}
+
+#sidebar {
+  background-color: #fadadd;
+}
+
+.cat:hover {
+  background-color: #fff4c1;
+}
+
+.home-box {
+  background-color: #fadadd;
+  border: 1px dashed black;
+}
