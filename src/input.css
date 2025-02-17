@@ -27,9 +27,9 @@ header {
   background-color: #fadadd;
 }
 
-.cat:hover {
+/* .cat:hover {
   background-color: #fff4c1;
-}
+} */
 
 .home-box {
   background-color: #fadadd;
@@ -50,3 +50,9 @@ header {
 .bounce-limited {
   animation: bounceOnce 1s ease-in-out 1;
 }
+
+/* .logo {
+  color: #ff8c42;
+  color: #e4572e; 
+  color: #d1495b;
+}*/

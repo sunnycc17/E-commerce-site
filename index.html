@@ -26,13 +26,17 @@
       >
         <!-- Left: Logo -->
         <div class="lg:flex lg:gap-x-10 flex items-center">
-          <a href="#home" class="logo flex gap-2 items-center">
+          <a href="#home" class="flex gap-2 items-center">
             <img
               src="public/icon.png"
               alt="Your Brand Logo"
               class="h-10 w-auto"
             />
-            <p class="font-bold text-white italic">Sunny Delights</p>
+            <p
+              class="font-bold logo bg-gradient-to-b to-pink-500 bg-clip-text text-transparent italic"
+            >
+              Sunny Delights
+            </p>
           </a>
         </div>
 
@@ -123,7 +127,7 @@
           @click.away="open = false"
         >
           <div class="flex items-center justify-between">
-            <h2 class="text-white font-bold text-lg">Categories</h2>
+            <h2 class="text-pink-500 font-bold text-lg">Categories</h2>
             <button
               type="button"
               class="-m-2.5 rounded-md p-2.5 text-white"
@@ -131,7 +135,7 @@
             >
               <span class="sr-only">Close menu</span>
               <svg
-                class="size-6"
+                class="size-6 text-pink-500"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
@@ -151,35 +155,49 @@
               <div class="space-y-3 py-6">
                 <a
                   href="#"
-                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300 ease-in-out"
+                  @click="open = false"
+                  >Home</a
+                >
+                <hr class="text-pink-500" />
+                <a
+                  href="#"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300 ease-in-out"
+                  @click="open = false"
+                  >About</a
+                >
+                <hr class="text-pink-500" />
+                <a
+                  href="#"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Chocolates</a
                 >
-                <hr />
+                <hr class="text-pink-500" />
                 <a
                   href="#"
-                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300"
                   @click="open = false"
                   >Lollipops</a
                 >
-                <hr />
+                <hr class="text-pink-500" />
                 <a
                   href="#"
-                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Candy</a
                 >
-                <hr />
+                <hr class="text-pink-500" />
                 <a
                   href="#"
-                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-red-500 transition-colors duration-300 ease-in-out"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-pink-300 hover:opacity-80 transition-colors duration-300 ease-in-out"
                   @click="open = false"
                   >Cookies</a
                 >
-                <hr />
+                <hr class="text-pink-500" />
                 <a
                   href="#"
-                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white ease-in-out hover:bg-red-500 transition-colors duration-300"
+                  class="cat block rounded-lg px-3 py-2 text-base font-semibold text-white ease-in-out hover:bg-pink-300 hover:opacity-80 transition-colors duration-300"
                   @click="open = false"
                 >
                   Cakes
