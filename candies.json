@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "name": "Strawberry Lollipop",
+    "price": 2.99,
+    "image": "https://images.pexels.com/photos/6798343/pexels-photo-6798343.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 2,
+    "name": "Milk Chocolate Bar",
+    "price": 3.49,
+    "image": "https://images.pexels.com/photos/6167343/pexels-photo-6167343.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 3,
+    "name": "Gummy Bears",
+    "price": 1.99,
+    "image": "public/gummy.png"
+  },
+  {
+    "id": 4,
+    "name": "Cotton Candy",
+    "price": 4.49,
+    "image": "public/cotton-candy.png"
+  },
+  {
+    "id": 5,
+    "name": "Pastel Marshmellows",
+    "price": 4.29,
+    "image": "https://images.pexels.com/photos/2808804/pexels-photo-2808804.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 6,
+    "name": "Chocolate Hearts",
+    "price": 4.0,
+    "image": "public/chocolates.png"
+  },
+  {
+    "id": 7,
+    "name": "Brownies",
+    "price": 4.7,
+    "image": "public/cakes.png"
+  },
+  {
+    "id": 8,
+    "name": "Candy Drops",
+    "price": 4.7,
+    "image": "public/candy.png"
+  },
+  {
+    "id": 9,
+    "name": "Cheesecake",
+    "price": 3.9,
+    "image": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 10,
+    "name": "Vanilla n' Blueberry",
+    "price": 4.1,
+    "image": "https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 11,
+    "name": "Forest Gift",
+    "price": 4.2,
+    "image": "https://images.pexels.com/photos/827513/pexels-photo-827513.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 12,
+    "name": "Honey Cake",
+    "price": 3.8,
+    "image": "https://images.pexels.com/photos/1359322/pexels-photo-1359322.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 13,
+    "name": "Vanilla",
+    "price": 3.8,
+    "image": "https://images.pexels.com/photos/9569398/pexels-photo-9569398.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 14,
+    "name": "Chocolate Cake",
+    "price": 3.8,
+    "image": "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 15,
+    "name": "Cake Pops",
+    "price": 2.8,
+    "image": "https://images.pexels.com/photos/33715/cake-pops-pastries-cake-sweet.jpg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 16,
+    "name": "Nutty Caramel Pie",
+    "price": 4.2,
+    "image": "https://images.pexels.com/photos/4161223/pexels-photo-4161223.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 17,
+    "name": "Nutty Chocolate Bar",
+    "price": 2.2,
+    "image": "https://images.pexels.com/photos/1693027/pexels-photo-1693027.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 18,
+    "name": "White Chocolate Bar",
+    "price": 2.0,
+    "image": "https://images.pexels.com/photos/4791257/pexels-photo-4791257.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 19,
+    "name": "Dark Chocolate Bar",
+    "price": 2.0,
+    "image": "https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 20,
+    "name": "Lollipop n' Gummy Bear Mix Bag",
+    "price": 5.0,
+    "image": "https://images.pexels.com/photos/5469041/pexels-photo-5469041.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 21,
+    "name": "Coca-Cola Lollipops",
+    "price": 2.1,
+    "image": "https://images.pexels.com/photos/5469215/pexels-photo-5469215.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 22,
+    "name": "Vanilla Lollipops",
+    "price": 2.1,
+    "image": "https://images.pexels.com/photos/11327900/pexels-photo-11327900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  },
+  {
+    "id": 23,
+    "name": "Classic Peppermint Lollipops",
+    "price": 2.1,
+    "image": "https://images.pexels.com/photos/11200120/pexels-photo-11200120.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 24,
+    "name": "Heart Candies",
+    "price": 1.99,
+    "image": "https://images.pexels.com/photos/208006/pexels-photo-208006.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 25,
+    "name": "Candy Beans",
+    "price": 1.99,
+    "image": "https://images.pexels.com/photos/65547/pexels-photo-65547.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 25,
+    "name": "Cherry Gummies",
+    "price": 2.99,
+    "image": "https://images.pexels.com/photos/1405760/pexels-photo-1405760.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 26,
+    "name": "Orange Gummies",
+    "price": 2.99,
+    "image": "https://images.pexels.com/photos/1236662/pexels-photo-1236662.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 27,
+    "name": "Chocolate Chip Cookies",
+    "price": 3.4,
+    "image": "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 28,
+    "name": "Macaroons",
+    "price": 3.4,
+    "image": "https://images.pexels.com/photos/239581/pexels-photo-239581.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 29,
+    "name": "Sugar Cookies",
+    "price": 3.4,
+    "image": "https://images.pexels.com/photos/266706/pexels-photo-266706.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    "id": 30,
+    "name": "Cookies With Flower Icing",
+    "price": 3.4,
+    "image": "https://images.pexels.com/photos/3593435/pexels-photo-3593435.jpeg?auto=compress&cs=tinysrgb&w=600"
+  }
+]
