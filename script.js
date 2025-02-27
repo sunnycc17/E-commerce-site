@@ -37,22 +37,20 @@ async function fetchCandies() {
 
     products.forEach((product) => {
       productGrid.innerHTML += `
-        <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
-          <img src="${product.image}" alt="${
-        product.name
-      }" class="w-full h-40 object-contain mb-3">
-          <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
-          <p class="text-pink-600 font-semibold">$${product.price.toFixed(
-            2
-          )}</p>
-          <button onclick="addToCart(${product.id}, '${product.name}', ${
+    <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+      <img src="${product.image}" 
+        alt="${product.name}" 
+        class="w-full h-40 object-cover rounded-md mb-3">
+      <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
+      <p class="text-pink-600 font-semibold">$${product.price.toFixed(2)}</p>
+      <button onclick="addToCart(${product.id}, '${product.name}', ${
         product.price
       })" 
-            class="mt-3 bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-700">
-            Add to Cart
-          </button>
-        </div>
-      `;
+        class="mt-3 bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-700">
+        Add to Cart
+      </button>
+    </div>
+  `;
     });
   } catch (error) {
     console.error("Error fetching candies:", error);
