@@ -100,16 +100,19 @@ function showProductInfo(id) {
           addToCart(product.id, product.name, product.price);
 
         modal.classList.remove("hidden");
+        modal.classList.add("flex"); // Ensure modal uses flex for centering
 
         // Disable scrolling when modal is open
         document.body.style.overflow = "hidden"; // Disable scroll
       }
-    });
+    })
+    .catch((error) => console.error("Error fetching product data:", error));
 }
 
 // Close modal on button click
 closeModal.addEventListener("click", () => {
   modal.classList.add("hidden");
+  modal.classList.remove("flex"); // Make sure to remove flex when hidden
 
   // Re-enable scrolling when modal is closed
   document.body.style.overflow = "auto"; // Enable scroll
@@ -119,8 +122,14 @@ closeModal.addEventListener("click", () => {
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.classList.add("hidden");
+    modal.classList.remove("flex");
 
     // Re-enable scrolling when modal is closed
     document.body.style.overflow = "auto"; // Enable scroll
   }
 });
+
+// Dummy addToCart function for now (define your cart logic here)
+function addToCart(id, name, price) {
+  console.log(`Added to cart: ${name}, Price: $${price}`);
+}
