@@ -3,186 +3,147 @@
     "id": 1,
     "name": "Strawberry Lollipop",
     "price": 2.99,
-    "image": "https://images.pexels.com/photos/6798343/pexels-photo-6798343.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/6798343/pexels-photo-6798343.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "A tangy strawberry lollipop made with real strawberry juice and magical flavorings for a sweet treat."
   },
   {
     "id": 2,
     "name": "Milk Chocolate Bar",
     "price": 3.49,
-    "image": "https://images.pexels.com/photos/6167343/pexels-photo-6167343.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/6167343/pexels-photo-6167343.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Smooth milk chocolate bar with a creamy, buttery finish and a touch of cocoa beans from Sweetopia."
   },
   {
     "id": 3,
     "name": "Gummy Bears",
     "price": 1.99,
-    "image": "public/gummy.png"
+    "image": "public/gummy.png",
+    "description": "Chewy gummy bears with wild berry and citrus flavors, topped with a hint of secret syrupy sweetness."
   },
   {
     "id": 4,
     "name": "Cotton Candy",
     "price": 4.49,
-    "image": "public/cotton-candy.png"
+    "image": "public/cotton-candy.png",
+    "description": "Fluffy cotton candy made from pure whimsy, sugar, and a hint of rainbow that will float you into sweetness."
   },
   {
     "id": 5,
     "name": "Pastel Marshmellows",
     "price": 4.29,
-    "image": "https://images.pexels.com/photos/2808804/pexels-photo-2808804.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/2808804/pexels-photo-2808804.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Soft, pastel-colored marshmallows filled with vanilla sweetness and a touch of magic dust for extra flavor."
   },
   {
     "id": 6,
     "name": "Chocolate Hearts",
     "price": 4.0,
-    "image": "public/chocolates.png"
+    "image": "public/chocolates.png",
+    "description": "Velvety milk chocolate hearts sprinkled with love, offering a smooth and indulgent bite."
   },
   {
     "id": 7,
     "name": "Brownies",
     "price": 4.7,
-    "image": "public/cakes.png"
+    "image": "public/cakes.png",
+    "description": "Fudgy brownies made with premium cocoa and butter, delivering a melt-in-your-mouth experience."
   },
   {
     "id": 8,
     "name": "Candy Drops",
     "price": 4.7,
-    "image": "public/candy.png"
+    "image": "public/candy.png",
+    "description": "Tangy candy drops bursting with fruity goodness and a surprise twist in every bite."
   },
   {
     "id": 9,
     "name": "Cheesecake",
     "price": 3.9,
-    "image": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Rich and creamy cheesecake topped with a swirl of caramel, offering a decadent and indulgent experience."
   },
   {
     "id": 10,
     "name": "Vanilla n' Blueberry",
     "price": 4.1,
-    "image": "https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/2144112/pexels-photo-2144112.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "A perfect blend of sweet vanilla and fresh blueberries, creating a burst of fruity, creamy bliss."
   },
   {
     "id": 11,
     "name": "Forest Gift",
     "price": 4.2,
-    "image": "https://images.pexels.com/photos/827513/pexels-photo-827513.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/827513/pexels-photo-827513.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Forest-inspired cookies packed with wild berry compote and a mix of forest spices for a magical taste."
   },
   {
     "id": 12,
     "name": "Honey Cake",
     "price": 3.8,
-    "image": "https://images.pexels.com/photos/1359322/pexels-photo-1359322.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/1359322/pexels-photo-1359322.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Delicate honey cake with a touch of cinnamon, delivering a soft and sweet flavor that’s pure joy."
   },
   {
     "id": 13,
     "name": "Vanilla",
     "price": 3.8,
-    "image": "https://images.pexels.com/photos/9569398/pexels-photo-9569398.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/9569398/pexels-photo-9569398.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Buttery vanilla cake with a rich, smooth flavor, offering a classic yet delightful experience."
   },
   {
     "id": 14,
     "name": "Chocolate Cake",
     "price": 3.8,
-    "image": "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Rich chocolate cake with smooth ganache and dark chocolate chips, creating a deep, indulgent flavor."
   },
   {
     "id": 15,
     "name": "Cake Pops",
     "price": 2.8,
-    "image": "https://images.pexels.com/photos/33715/cake-pops-pastries-cake-sweet.jpg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/33715/cake-pops-pastries-cake-sweet.jpg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Bite-sized cake pops dipped in creamy chocolate and sprinkled with colorful toppings for a sweet treat."
   },
   {
     "id": 16,
     "name": "Nutty Caramel Pie",
     "price": 4.2,
-    "image": "https://images.pexels.com/photos/4161223/pexels-photo-4161223.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/4161223/pexels-photo-4161223.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Crunchy nuts and silky caramel blend together in this addictive pie for a sweet and salty delight."
   },
   {
     "id": 17,
     "name": "Nutty Chocolate Bar",
     "price": 2.2,
-    "image": "https://images.pexels.com/photos/1693027/pexels-photo-1693027.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/1693027/pexels-photo-1693027.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Crunchy chocolate bar with roasted nuts and caramel, offering a perfect balance of sweet and salty flavors."
   },
   {
     "id": 18,
     "name": "White Chocolate Bar",
     "price": 2.0,
-    "image": "https://images.pexels.com/photos/4791257/pexels-photo-4791257.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/4791257/pexels-photo-4791257.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Smooth, creamy white chocolate with a hint of vanilla bean, delivering a melt-in-your-mouth sensation."
   },
   {
     "id": 19,
     "name": "Dark Chocolate Bar",
     "price": 2.0,
-    "image": "https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Rich, intense dark chocolate with a slightly bitter finish, perfect for true chocolate lovers."
   },
   {
     "id": 20,
     "name": "Lollipop n' Gummy Bear Mix Bag",
     "price": 5.0,
-    "image": "https://images.pexels.com/photos/5469041/pexels-photo-5469041.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/5469041/pexels-photo-5469041.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "A mix of lollipops and gummy bears, offering the best of both chewy and crunchy candy in one bag."
   },
   {
     "id": 21,
     "name": "Coca-Cola Lollipops",
     "price": 2.1,
-    "image": "https://images.pexels.com/photos/5469215/pexels-photo-5469215.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 22,
-    "name": "Vanilla Lollipops",
-    "price": 2.1,
-    "image": "https://images.pexels.com/photos/11327900/pexels-photo-11327900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  },
-  {
-    "id": 23,
-    "name": "Classic Peppermint Lollipops",
-    "price": 2.1,
-    "image": "https://images.pexels.com/photos/11200120/pexels-photo-11200120.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 24,
-    "name": "Heart Candies",
-    "price": 1.99,
-    "image": "https://images.pexels.com/photos/208006/pexels-photo-208006.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 25,
-    "name": "Candy Beans",
-    "price": 1.99,
-    "image": "https://images.pexels.com/photos/65547/pexels-photo-65547.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 25,
-    "name": "Cherry Gummies",
-    "price": 2.99,
-    "image": "https://images.pexels.com/photos/1405760/pexels-photo-1405760.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 26,
-    "name": "Orange Gummies",
-    "price": 2.99,
-    "image": "https://images.pexels.com/photos/1236662/pexels-photo-1236662.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 27,
-    "name": "Chocolate Chip Cookies",
-    "price": 3.4,
-    "image": "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 28,
-    "name": "Macaroons",
-    "price": 3.4,
-    "image": "https://images.pexels.com/photos/239581/pexels-photo-239581.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 29,
-    "name": "Sugar Cookies",
-    "price": 3.4,
-    "image": "https://images.pexels.com/photos/266706/pexels-photo-266706.jpeg?auto=compress&cs=tinysrgb&w=600"
-  },
-  {
-    "id": 30,
-    "name": "Cookies With Flower Icing",
-    "price": 3.4,
-    "image": "https://images.pexels.com/photos/3593435/pexels-photo-3593435.jpeg?auto=compress&cs=tinysrgb&w=600"
+    "image": "https://images.pexels.com/photos/5469215/pexels-photo-5469215.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Coca-Cola flavored lollipops with a refreshing, fizzy taste that brings the essence of soda in candy form."
   }
 ]
