@@ -36,6 +36,11 @@ const cartTotal = document.getElementById("cartTotal");
 const closeCart = document.getElementById("closeCart");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+cart = cart.map((item) => ({
+  ...item,
+  price: Number(item.price), // Ensure price is a number
+  quantity: Number(item.quantity) || 1, // Ensure quantity is valid
+}));
 updateCartCount();
 
 function fetchCandies() {
@@ -71,13 +76,24 @@ function fetchCandies() {
 }
 
 function addToCart(id, name, price) {
-  cart.push({ id, name, price });
+  const existingItem = cart.find((item) => item.id === id);
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 }
 
 function updateCartCount() {
-  cartCount.textContent = cart.length;
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
+  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
+  cartCount.textContent = totalItems || 0; // Prevent NaN
 }
 
 function showProductInfo(id) {
@@ -106,25 +122,31 @@ function showProductInfo(id) {
 function showCart() {
   cartItems.innerHTML = "";
   let total = 0;
+
   cart.forEach((item, index) => {
-    total += item.price;
+    const itemTotal = (item.price || 0) * (item.quantity || 1); // Prevent NaN
+    total += itemTotal;
     cartItems.innerHTML += `
       <div class="flex justify-between items-center border-b py-2">
-        <span>${item.name} - $${item.price.toFixed(2)}</span>
+        <span>${item.name} [${item.quantity}] - $${itemTotal.toFixed(2)}</span>
         <button onclick="removeFromCart(${index})" class="text-red-500">Remove</button>
       </div>
     `;
   });
-  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-  // Show only cart modal
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
   cartContainer.classList.remove("hidden");
   cartContainer.classList.add("flex");
-  document.body.style.overflow = "hidden"; // Disable scrolling when cart is open
+  document.body.style.overflow = "hidden";
 }
 
 function removeFromCart(index) {
-  cart.splice(index, 1);
+  if (cart[index].quantity > 1) {
+    cart[index].quantity -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
+
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
   showCart();
