@@ -7,24 +7,34 @@ window.onload = function () {
       clickable: true,
     },
     autoplay: {
-      delay: 3000, // Slide change every 3 seconds
-      disableOnInteraction: false, // Keep autoplay running even when user interacts
+      delay: 3000,
+      disableOnInteraction: false,
     },
     keyboard: {
       enabled: true,
-      onlyInViewport: true, // Only works if Swiper is visible
+      onlyInViewport: true,
     },
   });
 };
 
-AOS.init({
-  once: true, // Ensures animations happen only once
-});
+AOS.init({ once: true });
 
 const productGrid = document.getElementById("productGrid");
 const cartCount = document.getElementById("cartCount");
+const modal = document.getElementById("productModal");
+const modalContent = document.getElementById("modalContent");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalPrice = document.getElementById("modalPrice");
+const closeModal = document.getElementById("closeModal");
+const addToCartButton = document.getElementById("addToCartButton");
+const cartButton = document.getElementById("cartButton");
+const cartContainer = document.getElementById("cartContainer");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
+const closeCart = document.getElementById("closeCart");
 
-// Load cart count from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 updateCartCount();
 
@@ -61,27 +71,14 @@ function fetchCandies() {
 }
 
 function addToCart(id, name, price) {
-  // Add product to cart
-  const product = { id, name, price };
-  cart.push(product);
-  localStorage.setItem("cart", JSON.stringify(cart)); // Save to localStorage
+  cart.push({ id, name, price });
+  localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 }
 
 function updateCartCount() {
   cartCount.textContent = cart.length;
 }
-
-// Fetch candies on page load
-fetchCandies();
-
-const modal = document.getElementById("productModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalPrice = document.getElementById("modalPrice");
-const closeModal = document.getElementById("closeModal");
-const addToCartButton = document.getElementById("addToCartButton");
 
 function showProductInfo(id) {
   fetch("candies.json")
@@ -94,42 +91,87 @@ function showProductInfo(id) {
         modalDescription.textContent =
           product.description || "No description available.";
         modalPrice.textContent = `$${product.price.toFixed(2)}`;
-
-        // Update Add to Cart button to call addToCart with correct product
         addToCartButton.onclick = () =>
           addToCart(product.id, product.name, product.price);
 
         modal.classList.remove("hidden");
-        modal.classList.add("flex"); // Ensure modal uses flex for centering
+        modal.classList.add("flex", "z-50"); // Ensure it's above everything
 
-        // Disable scrolling when modal is open
-        document.body.style.overflow = "hidden"; // Disable scroll
+        document.body.style.overflow = "hidden";
       }
     })
     .catch((error) => console.error("Error fetching product data:", error));
 }
 
-// Close modal on button click
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
-  modal.classList.remove("flex"); // Make sure to remove flex when hidden
+function showCart() {
+  cartItems.innerHTML = "";
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price;
+    cartItems.innerHTML += `
+      <div class="flex justify-between items-center border-b py-2">
+        <span>${item.name} - $${item.price.toFixed(2)}</span>
+        <button onclick="removeFromCart(${index})" class="text-red-500">Remove</button>
+      </div>
+    `;
+  });
+  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
 
-  // Re-enable scrolling when modal is closed
-  document.body.style.overflow = "auto"; // Enable scroll
+  // Show only cart modal
+  cartContainer.classList.remove("hidden");
+  cartContainer.classList.add("flex");
+  document.body.style.overflow = "hidden"; // Disable scrolling when cart is open
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  showCart();
+}
+
+function showModal(type) {
+  // Hide both modals before showing the desired one
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  cartContainer.classList.add("hidden");
+  cartContainer.classList.remove("flex");
+
+  if (type === "product") {
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+  } else if (type === "cart") {
+    cartContainer.classList.remove("hidden");
+    cartContainer.classList.add("flex");
+  }
+
+  document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+}
+
+cartButton.addEventListener("click", () => {
+  showCart();
 });
 
-// Close modal when clicking outside of it
+closeModal.addEventListener("click", () => {
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+  document.body.style.overflow = "auto"; // Restore scroll
+});
+
+closeCart.addEventListener("click", () => {
+  cartContainer.classList.add("hidden");
+  cartContainer.classList.remove("flex");
+  document.body.style.overflow = "auto"; // Restore scroll
+});
+
 window.addEventListener("click", (e) => {
-  if (e.target === modal) {
+  if (e.target === modal || e.target === cartContainer) {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
-
-    // Re-enable scrolling when modal is closed
-    document.body.style.overflow = "auto"; // Enable scroll
+    cartContainer.classList.add("hidden");
+    cartContainer.classList.remove("flex");
+    document.body.style.overflow = "auto"; // Restore scroll
   }
 });
 
-// Dummy addToCart function for now (define your cart logic here)
-function addToCart(id, name, price) {
-  console.log(`Added to cart: ${name}, Price: $${price}`);
-}
+fetchCandies();
