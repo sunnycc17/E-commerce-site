@@ -1,19 +1,10 @@
 window.onload = function () {
-  const swiper = new Swiper(".swiper", {
+  new Swiper(".swiper", {
     direction: "horizontal",
     loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    keyboard: {
-      enabled: true,
-      onlyInViewport: true,
-    },
+    pagination: { el: ".swiper-pagination", clickable: true },
+    autoplay: { delay: 3000, disableOnInteraction: false },
+    keyboard: { enabled: true, onlyInViewport: true },
   });
 };
 
@@ -27,172 +18,174 @@ const modalImage = document.getElementById("modalImage");
 const modalTitle = document.getElementById("modalTitle");
 const modalDescription = document.getElementById("modalDescription");
 const modalPrice = document.getElementById("modalPrice");
-const closeModal = document.getElementById("closeModal");
 const addToCartButton = document.getElementById("addToCartButton");
 const cartButton = document.getElementById("cartButton");
 const cartContainer = document.getElementById("cartContainer");
 const cartItems = document.getElementById("cartItems");
 const cartTotal = document.getElementById("cartTotal");
+const closeModal = document.getElementById("closeModal");
 const closeCart = document.getElementById("closeCart");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-cart = cart.map((item) => ({
-  ...item,
-  price: Number(item.price), // Ensure price is a number
-  quantity: Number(item.quantity) || 1, // Ensure quantity is valid
-}));
+cart.forEach((item) => {
+  item.price = Number(item.price);
+  item.quantity = Number(item.quantity) || 1;
+});
 updateCartCount();
 
-function fetchCandies() {
-  fetch("candies.json")
-    .then((res) => res.json())
-    .then((products) => {
-      productGrid.innerHTML = "";
-      products.forEach((product) => {
-        productGrid.innerHTML += `
-          <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
-            <img src="${product.image}" alt="${
-          product.name
-        }" class="w-full h-40 object-cover rounded-md mb-3">
-            <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
-            <p class="text-pink-600 font-semibold">$${product.price.toFixed(
-              2
-            )}</p>
-            <button onclick="addToCart(${product.id}, '${product.name}', ${
-          product.price
-        })"
-              class="mt-3 bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-700">
-              Add to Cart
-            </button>
-            <button onclick="showProductInfo(${product.id})"
-              class="mt-3 ml-2 border border-pink-600 text-pink-600 px-3 py-1 rounded hover:bg-pink-700 hover:text-white">
-              View Product
-            </button>
-          </div>
-        `;
-      });
-    })
-    .catch((error) => console.error("Error fetching candies:", error));
+let products = [];
+
+// Fetch candies once and store them
+async function fetchCandies() {
+  try {
+    const res = await fetch("candies.json");
+    products = await res.json();
+    renderProducts();
+  } catch (error) {
+    console.error("Error fetching candies:", error);
+  }
 }
 
+function renderProducts() {
+  productGrid.innerHTML = products
+    .map(
+      (product) => `
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+        <img src="${product.image}" alt="${product.name}" 
+          class="w-full h-40 object-cover rounded-md mb-3">
+        <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
+        <p class="text-pink-600 font-semibold">$${product.price.toFixed(2)}</p>
+        <button class="add-to-cart mt-3 bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-700"
+          data-id="${product.id}" data-name="${product.name}" data-price="${
+        product.price
+      }">
+          Add to Cart
+        </button>
+        <button class="view-product mt-3 ml-2 border border-pink-600 text-pink-600 px-3 py-1 rounded hover:bg-pink-700 hover:text-white"
+          data-id="${product.id}">
+          View Product
+        </button>
+      </div>`
+    )
+    .join("");
+}
+
+// Add to cart
 function addToCart(id, name, price) {
   const existingItem = cart.find((item) => item.id === id);
 
   if (existingItem) {
-    existingItem.quantity += 1;
+    existingItem.quantity++;
   } else {
     cart.push({ id, name, price, quantity: 1 });
   }
 
+  saveCart();
+}
+
+function updateCartCount() {
+  cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
 }
 
-function updateCartCount() {
-  if (!Array.isArray(cart)) {
-    cart = [];
-  }
-  const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 0), 0);
-  cartCount.textContent = totalItems || 0; // Prevent NaN
-}
-
+// Show product details in modal
 function showProductInfo(id) {
-  fetch("candies.json")
-    .then((res) => res.json())
-    .then((products) => {
-      const product = products.find((p) => p.id === id);
-      if (product) {
-        modalImage.src = product.image;
-        modalTitle.textContent = product.name;
-        modalDescription.textContent =
-          product.description || "No description available.";
-        modalPrice.textContent = `$${product.price.toFixed(2)}`;
-        addToCartButton.onclick = () =>
-          addToCart(product.id, product.name, product.price);
+  const product = products.find((p) => p.id === id);
+  if (!product) return;
 
-        modal.classList.remove("hidden");
-        modal.classList.add("flex", "z-50"); // Ensure it's above everything
+  modalImage.src = product.image;
+  modalTitle.textContent = product.name;
+  modalDescription.textContent =
+    product.description || "No description available.";
+  modalPrice.textContent = `$${product.price.toFixed(2)}`;
+  addToCartButton.onclick = () =>
+    addToCart(product.id, product.name, product.price);
 
-        document.body.style.overflow = "hidden";
-      }
-    })
-    .catch((error) => console.error("Error fetching product data:", error));
+  showModal(modal);
 }
 
+// Show cart items
 function showCart() {
-  cartItems.innerHTML = "";
-  let total = 0;
-
-  cart.forEach((item, index) => {
-    const itemTotal = (item.price || 0) * (item.quantity || 1); // Prevent NaN
-    total += itemTotal;
-    cartItems.innerHTML += `
+  cartItems.innerHTML = cart
+    .map(
+      (item, index) => `
       <div class="flex justify-between items-center border-b py-2">
-        <span>${item.name} [${item.quantity}] - $${itemTotal.toFixed(2)}</span>
-        <button onclick="removeFromCart(${index})" class="text-red-500">Remove</button>
-      </div>
-    `;
-  });
+        <span>${item.name} [${item.quantity}] - $${(
+        item.price * item.quantity
+      ).toFixed(2)}</span>
+        <button class="remove-from-cart text-red-500" data-index="${index}">Remove</button>
+      </div>`
+    )
+    .join("");
 
-  cartTotal.textContent = `Total: $${total.toFixed(2)}`;
-  cartContainer.classList.remove("hidden");
-  cartContainer.classList.add("flex");
-  document.body.style.overflow = "hidden";
+  cartTotal.textContent = `Total: $${cart
+    .reduce((sum, item) => sum + item.price * item.quantity, 0)
+    .toFixed(2)}`;
+
+  showModal(cartContainer);
 }
 
+// Remove from cart
 function removeFromCart(index) {
   if (cart[index].quantity > 1) {
-    cart[index].quantity -= 1;
+    cart[index].quantity--;
   } else {
     cart.splice(index, 1);
   }
 
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
+  saveCart();
   showCart();
 }
 
-function showModal(type) {
-  // Hide both modals before showing the desired one
+// Show modal and prevent scrolling
+function showModal(element) {
   modal.classList.add("hidden");
-  modal.classList.remove("flex");
   cartContainer.classList.add("hidden");
-  cartContainer.classList.remove("flex");
 
-  if (type === "product") {
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-  } else if (type === "cart") {
-    cartContainer.classList.remove("hidden");
-    cartContainer.classList.add("flex");
-  }
+  element.classList.remove("hidden");
+  element.classList.add("flex");
 
-  document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+  document.body.style.overflow = "hidden";
 }
 
-cartButton.addEventListener("click", () => {
-  showCart();
-});
-
-closeModal.addEventListener("click", () => {
+// Close modals
+function closeModalHandler() {
   modal.classList.add("hidden");
-  modal.classList.remove("flex");
-  document.body.style.overflow = "auto"; // Restore scroll
-});
-
-closeCart.addEventListener("click", () => {
   cartContainer.classList.add("hidden");
-  cartContainer.classList.remove("flex");
-  document.body.style.overflow = "auto"; // Restore scroll
-});
+  document.body.style.overflow = "auto";
+}
+
+// Event Listeners
+cartButton.addEventListener("click", showCart);
+closeModal.addEventListener("click", closeModalHandler);
+closeCart.addEventListener("click", closeModalHandler);
 
 window.addEventListener("click", (e) => {
   if (e.target === modal || e.target === cartContainer) {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    cartContainer.classList.add("hidden");
-    cartContainer.classList.remove("flex");
-    document.body.style.overflow = "auto"; // Restore scroll
+    closeModalHandler();
+  }
+});
+
+// Delegate event handling to the product grid (for better performance)
+productGrid.addEventListener("click", (e) => {
+  const target = e.target;
+
+  if (target.classList.contains("add-to-cart")) {
+    const { id, name, price } = target.dataset;
+    addToCart(Number(id), name, Number(price));
+  } else if (target.classList.contains("view-product")) {
+    showProductInfo(Number(target.dataset.id));
+  }
+});
+
+// Delegate event handling to the cart (removing items)
+cartContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains("remove-from-cart")) {
+    removeFromCart(Number(e.target.dataset.index));
   }
 });
 
