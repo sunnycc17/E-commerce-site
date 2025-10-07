@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-body {
-  background-color: whitesmoke;
-}
-
 [x-cloak] {
   display: none !important;
 }
@@ -18,13 +14,17 @@ body {
   opacity: 1;
 }
 
+body {
+  background-color: #ffe5ec;
+}
+
 header {
-  background-color: #fadadd;
+  background-color: #ff8fab;
 }
 
 #sidebar,
 .divider {
-  background-color: #fadadd;
+  background-color: #ff8fab;
 }
 
 /* .cat:hover {
@@ -32,7 +32,7 @@ header {
 } */
 
 .home-box {
-  background-color: #fadadd;
+  background-color: rgb(241, 168, 177);
   border: 1px solid #f6339a;
 }
 
