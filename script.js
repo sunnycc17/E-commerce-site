@@ -9,6 +9,10 @@ new Swiper(".swiper", {
     delay: 2500, // time between slides in ms
     disableOnInteraction: false, // keeps autoplay even after manual interaction
   },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
   breakpoints: {
     640: { slidesPerView: 1.5, spaceBetween: 16 },
     768: { slidesPerView: 2, spaceBetween: 20 },

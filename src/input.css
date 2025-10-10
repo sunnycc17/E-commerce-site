@@ -17,3 +17,25 @@ body {
   background-color: rgb(216, 171, 216) !important; /* Active dot color */
   opacity: 1;
 }
+
+/* hide arrows on mobile and show on desktop */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none; /* hidden by default (mobile) */
+  color: #ef4444; /* red-500 for arrows */
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(244, 116, 116, 0.189); /* optional background */
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* show arrows on desktop (>=1024px) */
+@media (min-width: 1024px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex !important;
+  }
+}
