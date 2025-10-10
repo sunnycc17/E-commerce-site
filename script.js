@@ -20,7 +20,6 @@ new Swiper(".swiper", {
   },
 });
 
-AOS.init({ once: true });
 
 const productGrid = document.getElementById("productGrid");
 const cartCount = document.getElementById("cartCount");
