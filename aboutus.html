@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="public/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>Sunny Delights | About Us</title>
+  </head>
+  <body>
+    <!-- HEADER AND NAVI BAR -->
+    <header
+      class="fixed top-0 z-40 w-full border-b bg-rose-600/80 backdrop-blur-sm border-rose-500"
+      x-data="{ open: false }"
+      aria-label="Main site header"
+    >
+      <nav
+        class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-6"
+        aria-label="Global navigation"
+      >
+        <!-- Logo -->
+        <div
+          class="flex items-center gap-3 bg-pink-100/80 p-1 px-2 border border-red-600 rounded-2xl"
+        >
+          <a href="index.html" class="flex items-center gap-2">
+            <img
+              src="public/icon.png"
+              alt="Sunny Delights logo"
+              class="h-6 sm:h-8 w-auto"
+            />
+            <h1 class="font-bold italic text-red-600 text-sm sm:text-base">
+              Sunny Delights
+            </h1>
+          </a>
+        </div>
+
+        <!-- Search (hidden on xs) -->
+        <div class="hidden sm:flex items-center w-1/3">
+          <div class="relative w-full">
+            <label for="search" class="sr-only">Search candies</label>
+            <input
+              id="search"
+              type="text"
+              placeholder="Search candies..."
+              class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
+            />
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                class="h-5 w-5 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="flex items-center">
+          <button
+            type="button"
+            class="inline-flex h-8.5 items-center justify-center rounded-md p-2 text-pink-100/80 bg-rose-700 border border-white/40 lg:hidden"
+            @click="open = !open"
+            :aria-expanded="open"
+            aria-label="Toggle menu"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- overlay -->
+      <div
+        x-show="open"
+        x-cloak
+        x-transition.opacity
+        class="fixed inset-0 z-30 bg-black/40"
+        @click="open = false"
+        aria-hidden="true"
+      ></div>
+      <aside
+        x-show="open"
+        x-cloak
+        x-transition:enter="transform transition ease-in-out duration-300"
+        x-transition:enter-start="translate-x-full opacity-0"
+        x-transition:enter-end="translate-x-0 opacity-100"
+        x-transition:leave="transform transition ease-in-out duration-250"
+        x-transition:leave-start="translate-x-0 opacity-100"
+        x-transition:leave-end="translate-x-full opacity-0"
+        @keydown.escape.window="open = false"
+        @click.outside="open = false"
+        class="fixed inset-0 z-40 bg-rose-600 text-pink-100 flex flex-col h-screen overflow-hidden"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="flex items-center justify-between px-6 pt-6">
+          <h2 class="text-white font-bold text-lg">Categories</h2>
+          <button
+            type="button"
+            class="rounded-md p-2.5 text-white hover:bg-white/10"
+            @click="open = false"
+            aria-label="Close menu"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-6 px-6 pb-6 flex flex-col justify-start space-y-3">
+          <a
+            href="index.html"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >About</a
+          >
+          <a
+            href="#chocolates"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Chocolates</a
+          >
+          <a
+            href="#lollipops"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Lollipops</a
+          >
+          <a
+            href="#candy"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Candy</a
+          >
+          <a
+            href="#cookies"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Cookies</a
+          >
+          <a
+            href="#cakes"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            >Cakes</a
+          >
+        </nav>
+      </aside>
+    </header>
+
+<section id="about" class="py-24 bg-rose-50 mt-10">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <!-- Text Column -->
+    <div class="text-rose-600 leading-relaxed space-y-6">
+      <h1 class="text-5xl font-serif font-bold text-rose-500">
+        About Sunny Delights
+      </h1>
+
+      <p>
+        At <strong>Sunny Delights</strong>, we bring joy through handcrafted
+        sweets, chocolates, and candies. Our passion is creating treats that
+        brighten your day.
+      </p>
+
+      <p>
+        Founded in 2023, Sunny Delights started as a small home-based candy
+        project. We believe every sweet deserves love, care, and a sprinkle of
+        happiness.
+      </p>
+
+      <p>
+        Our mission is simple: deliver high-quality, delicious treats to every
+        corner of the world. Each candy is crafted to bring smiles and delight.
+      </p>
+
+      <p>
+        We love only the finest ingredients, sourced responsibly, ensuring every
+        bite is fresh, tasty, and memorable. We love sharing our sweets at local
+        events and engaging with our community. Join us for seasonal creations
+        that celebrate the joy of sweetness.
+      </p>
+    </div>
+
+    <!-- Image Column -->
+    <div class="flex justify-center items-center mx-auto md:justify-end">
+      <img
+        src="public/store.png"
+        alt="Sunny Delights storefront"
+        class="rounded-lg shadow-md w-80 md:w-[24rem] object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+
+
+
+    <!-- CART ICON (reuse from homepage) -->
+    <button
+      id="cartButton"
+      class="fixed bottom-4 right-4 bg-rose-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full hover:bg-rose-700 hover:cursor-pointer"
+    >
+      🛒 Cart: <span id="cartCount">0</span>
+    </button>
+
+    <!-- FOOTER -->
+    <footer class="text-pink-100 border-t border-red-600 bg-rose-400/80 mt-12">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-4 p-6"
+      >
+        <div
+          class="text-center flex flex-col items-center space-y-2 font-light"
+        >
+          <p
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
+          >
+            Products
+          </p>
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Sunfire Cakes</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Sunlight Candies</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Sunny Lollipops</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Sunburst Chocolates</a
+          >
+        </div>
+        <div
+          class="text-center flex flex-col items-center space-y-2 font-light"
+        >
+          <p
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
+          >
+            Socials
+          </p>
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            ><i class="ri-tiktok-line"></i> TikTok</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            ><i class="ri-twitter-x-line"></i> Twitter</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            ><i class="ri-instagram-line"></i> Instagram</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            ><i class="ri-facebook-box-line"></i> Facebook</a
+          >
+        </div>
+        <div
+          class="text-center flex flex-col items-center space-y-2 font-light"
+        >
+          <p
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
+          >
+            Information
+          </p>
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >About Us</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Contact Us</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >FAQs</a
+          >
+        </div>
+        <div
+          class="text-center flex flex-col items-center space-y-2 font-light"
+        >
+          <p
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
+          >
+            More Of Us
+          </p>
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Events</a
+          >
+          <a
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
+            >Jobs</a
+          >
+        </div>
+      </div>
+      <div class="flex justify-center border-t border-red-600 bg-rose-800 mt-6">
+        <p class="py-2 text-sm text-center text-pink-100">
+          @2025 Sunny Delights. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
+      defer
+    ></script>
+  </body>
+</html>
