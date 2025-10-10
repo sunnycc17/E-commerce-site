@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="public/icon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="src/output.css" />
     <!-- seo meta tags -->
     <!-- Primary Meta Tags -->
@@ -55,11 +60,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="public/icon.png" />
 
-    <!-- swiper -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <!-- aos -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- remix icons -->
@@ -72,35 +72,31 @@
   <body>
     <!-- HEADER AND NAVI BAR -->
     <header
-      class="fixed top-0 z-10 w-full border-b border-pink-500 bg-pink-50/10 backdrop-blur-sm"
+      class="fixed top-0 z-40 w-full border-b bg-rose-600/80 backdrop-blur-sm border-rose-500"
       x-data="{ open: false }"
       aria-label="Main site header"
     >
       <nav
-        class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-6"
+        class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-6"
         aria-label="Global navigation"
       >
-        <!-- Left: Logo -->
-        <div class="flex items-center lg:gap-x-10">
+        <!-- Logo -->
+        <div
+          class="flex items-center gap-3 bg-pink-100/80 p-1 px-2 border border-red-600 rounded-2xl"
+        >
           <a href="#home" class="flex items-center gap-2">
             <img
               src="public/icon.png"
               alt="Sunny Delights logo"
-              class="h-10 w-auto"
+              class="h-6 sm:h-8 w-auto"
             />
-            <h1 class="relative font-bold italic text-pink-600">
+            <h1 class="font-bold italic text-red-600 text-sm sm:text-base">
               Sunny Delights
-              <span
-                aria-hidden="true"
-                class="absolute inset-0 bg-gradient-to-b from-pink-300 to-pink-500 bg-clip-text text-transparent"
-              >
-                Sunny Delights
-              </span>
             </h1>
           </a>
         </div>
 
-        <!-- Middle: Search Bar -->
+        <!-- Search (hidden on xs) -->
         <div class="hidden sm:flex items-center w-1/3">
           <div class="relative w-full">
             <label for="search" class="sr-only">Search candies</label>
@@ -108,13 +104,13 @@
               id="search"
               type="text"
               placeholder="Search candies..."
-              class="w-full pl-10 pr-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-pink-200 text-pink-600"
+              class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
             />
             <div
               class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
             >
               <svg
-                class="h-5 w-5 text-pink-400"
+                class="h-5 w-5 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -132,16 +128,17 @@
           </div>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <div class="flex items-center space-x-4">
+        <!-- Mobile menu button -->
+        <div class="flex items-center">
           <button
             type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-pink-500 hover:bg-pink-100 lg:hidden"
-            @click="open = true"
-            aria-label="Open main menu"
+            class="inline-flex h-8.5 items-center justify-center rounded-md p-2 text-pink-100/80 bg-rose-700 border border-white/40 lg:hidden"
+            @click="open = !open"
+            :aria-expanded="open"
+            aria-label="Toggle menu"
           >
             <svg
-              class="size-6"
+              class="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
@@ -158,322 +155,294 @@
         </div>
       </nav>
 
-      <!-- Mobile Sidebar Menu -->
-      <div role="dialog" aria-modal="true" x-show="open" x-cloak>
-        <div
-          id="sidebar"
-          class="fixed inset-y-0 right-0 z-20 w-64 overflow-y-auto bg-pink-50/95 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-pink-200 text-center shadow-lg"
-          x-transition:enter="transform transition ease-in-out duration-300"
-          x-transition:enter-start="translate-x-full opacity-0"
-          x-transition:enter-end="translate-x-0 opacity-100"
-          @click.away="open = false"
-        >
-          <div class="flex items-center justify-between">
-            <h2 class="text-pink-500 font-bold text-lg">Categories</h2>
-            <button
-              type="button"
-              class="-m-2.5 rounded-md p-2.5 text-pink-500 hover:bg-pink-100"
-              @click="open = false"
-              aria-label="Close menu"
+      <!-- overlay -->
+      <div
+        x-show="open"
+        x-cloak
+        x-transition.opacity
+        class="fixed inset-0 z-30 bg-black/40"
+        @click="open = false"
+        aria-hidden="true"
+      ></div>
+      <aside
+        x-show="open"
+        x-cloak
+        x-transition:enter="transform transition ease-in-out duration-300"
+        x-transition:enter-start="translate-x-full opacity-0"
+        x-transition:enter-end="translate-x-0 opacity-100"
+        x-transition:leave="transform transition ease-in-out duration-250"
+        x-transition:leave-start="translate-x-0 opacity-100"
+        x-transition:leave-end="translate-x-full opacity-0"
+        @keydown.escape.window="open = false"
+        @click.outside="open = false"
+        class="fixed inset-0 z-40 bg-rose-600 text-pink-100 flex flex-col h-screen overflow-hidden"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div class="flex items-center justify-between px-6 pt-6">
+          <h2 class="text-white font-bold text-lg">Categories</h2>
+          <button
+            type="button"
+            class="rounded-md p-2.5 text-white hover:bg-white/10"
+            @click="open = false"
+            aria-label="Close menu"
+          >
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
             >
-              <svg
-                class="size-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <nav class="mt-6 pt-4 space-y-3" aria-label="Mobile categories">
-            <a
-              href="#home"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Home</a
-            >
-            <a
-              href="#about"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >About</a
-            >
-            <a
-              href="#"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Chocolates</a
-            >
-            <a
-              href="#"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Lollipops</a
-            >
-            <a
-              href="#"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Candy</a
-            >
-            <a
-              href="#"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Cookies</a
-            >
-            <a
-              href="#"
-              class="block rounded-lg px-3 py-2 font-semibold text-pink-700 hover:bg-pink-200 transition"
-              @click="open = false"
-              >Cakes</a
-            >
-          </nav>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
+
+        <nav class="mt-6 px-6 pb-6 flex flex-col justify-start space-y-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >About</a
+          >
+          <a
+            href="#chocolates"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Chocolates</a
+          >
+          <a
+            href="#lollipops"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Lollipops</a
+          >
+          <a
+            href="#candy"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Candy</a
+          >
+          <a
+            href="#cookies"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Cookies</a
+          >
+          <a
+            href="#cakes"
+            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
+            @click="open = false"
+            >Cakes</a
+          >
+        </nav>
+      </aside>
     </header>
 
-    <!-- HOME -->
     <section
       id="home"
-      class="flex justify-center items-center lg:justify-end mt-32 mb-12"
+      class="flex flex-col justify-center items-center  sm:pt-32 lg:pt-36 py-12 mt-12"
     >
-      <div class="flex items-center justify-evenly w-full max-w-6xl px-5">
-        <!-- Heading Box -->
-        <div
-          class="text-pink-600 uppercase font-bold text-lg text-center leading-relaxed flex flex-col items-center space-y-2 p-2"
-        >
-          <div class="flex space-x-1">
-            <span
-              data-aos="fade-right"
-              data-aos-delay="100"
-              class="bounce-limited"
-              >S</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="150"
-              class="bounce-limited"
-              >o</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="200"
-              class="bounce-limited"
-              >f</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="250"
-              class="bounce-limited"
-              >t</span
-            >
+      <div class="w-full max-w-7xl px-4 sm:px-6">
+        <!-- Heading -->
+        <div class="text-center justify-center items-center">
+          <div
+            class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-4"
+          >
+            Soft as a Cloud Sweet as a Dream
           </div>
-
-          <div class="flex space-x-1">
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="300"
-              class="bounce-limited"
-              >A</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="350"
-              class="bounce-limited"
-              >s</span
-            >
-          </div>
-
-          <div class="flex justify-center space-x-1">
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="400"
-              class="bounce-limited"
-              >C</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="450"
-              class="bounce-limited"
-              >l</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="500"
-              class="bounce-limited"
-              >o</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="550"
-              class="bounce-limited"
-              >u</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="600"
-              class="bounce-limited"
-              >d</span
-            >
-          </div>
-
-          <div class="flex space-x-1">
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="650"
-              class="bounce-limited"
-              >S</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="700"
-              class="bounce-limited"
-              >w</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="750"
-              class="bounce-limited"
-              >e</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="800"
-              class="bounce-limited"
-              >e</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="850"
-              class="bounce-limited"
-              >t</span
-            >
-          </div>
-
-          <div class="flex space-x-1">
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="900"
-              class="bounce-limited"
-              >A</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="950"
-              class="bounce-limited"
-              >s</span
-            >
-          </div>
-
-          <div class="flex justify-center space-x-1">
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="1000"
-              class="bounce-limited"
-              >D</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="1050"
-              class="bounce-limited"
-              >r</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="1100"
-              class="bounce-limited"
-              >e</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="1150"
-              class="bounce-limited"
-              >a</span
-            >
-            <span
-              data-aos="zoom-in-down"
-              data-aos-delay="1200"
-              class="bounce-limited"
-              >m</span
-            >
-          </div>
+          <p class="text-rose-400 text-sm sm:text-base opacity-70 ">
+            Indulge in sweetness crafted with love
+          </p>
+          <p class="text-rose-400 text-sm sm:text-base opacity-60 mb-6">
+            From fluffy marshmallows to rich chocolates, every treat is made to
+            brighten your day.
+          </p>
         </div>
 
-        <!-- Swiper Container -->
-        <div class="p-3 mt-0 home-box rounded w-[60%] lg:w-[50%]">
-          <!-- Swiper Main Container -->
-          <div class="swiper w-full rounded-2xl relative">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide relative">
-                <img
-                  src="public/chocolates.png"
-                  alt="Chocolate Hearts"
-                  class="w-full h-[200px] sm:h-[239px] object-cover"
-                />
-                <div
-                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
-                >
-                  <h2 class="text-2xl font-bold">Delicious Chocolate Hearts</h2>
-                  <p class="text-sm">
-                    Indulge in the finest, smoothest chocolates.
-                  </p>
-                </div>
-              </div>
-              <div class="swiper-slide relative">
-                <img
-                  src="public/candy.png"
-                  alt="Pastel Colorful Candy"
-                  class="w-full h-[200px] sm:h-[239px] object-cover"
-                />
-                <div
-                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
-                >
-                  <h2 class="text-2xl font-bold">Colorful Candy Bliss</h2>
-                  <p class="text-sm">A burst of flavors in every bite!</p>
-                </div>
-              </div>
-              <div class="swiper-slide relative">
-                <img
-                  src="public/cakes.png"
-                  alt="Stacked Brownies"
-                  class="w-full h-[200px] sm:h-[239px] object-cover"
-                />
-                <div
-                  class="absolute inset-0 flex flex-col items-center justify-center bg-black/30 text-white text-center p-4"
-                >
-                  <h2 class="text-2xl font-bold">Fudgy Brownie Stacks</h2>
-                  <p class="text-sm">Rich, gooey, and irresistible!</p>
-                </div>
-              </div>
+        <!-- Swiper Carousel -->
+        <div class="swiper w-full mt-12">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="public/chocolates.png"
+                alt="Chocolate Hearts"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
             </div>
-            <div class="swiper-pagination"></div>
+
+            <div class="swiper-slide">
+              <img
+                src="public/cakes.png"
+                alt="Brownie Stacks"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="public/cotton-candy.png"
+                alt="Cotton Candy"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://images.pexels.com/photos/6798343/pexels-photo-6798343.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Strawberry Lollipops"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
+
+            <div class="swiper-slide">
+              <img
+                src="https://images.pexels.com/photos/5469041/pexels-photo-5469041.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Candy Mix"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
+
+            <div class="swiper-slide">
+              <img
+                src="https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Cheesecake"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://images.pexels.com/photos/827513/pexels-photo-827513.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt="Forest Gift"
+                class="w-full h-56 sm:h-64 md:h-72 object-cover"
+              />
+            </div>
           </div>
+          <div class="swiper-pagination mt-4"></div>
         </div>
       </div>
     </section>
 
-    <div class="w-full h-10 divider border-t border-b border-pink-500"></div>
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
+
+    <div
+      class="w-full h-3 bg-gradient-to-r from-pink-100 via-rose-600 to-pink-200 shadow-md rounded"
+    ></div>
+
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="bg-pink-100 p-4 sm:p-5">
+      <div class="flex justify-center items-center my-8 sm:my-12">
+        <span class="text-2xl sm:text-3xl mr-2">🍭</span>
+        <h1
+          class="text-xl sm:text-3xl md:text-4xl font-bold text-rose-600 text-center"
+          style="
+            font-size: calc(
+              1.5rem + (2rem - 1.5rem) * ((100vw - 222px) / (280 - 222))
+            );
+          "
+        >
+          Our Sweet Collection
+        </h1>
+        <span class="text-2xl sm:text-3xl ml-2">🍬</span>
+      </div>
+
+      <div
+        id="productGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
+      >
+        <!-- Products will be injected here -->
+      </div>
+
+      <!-- Modal Structure -->
+      <div
+        id="productModal"
+        class="modal fixed inset-0 bg-black/75 hidden justify-center items-center p-4"
+      >
+        <div class="bg-white p-4 sm:p-6 rounded-lg w-full max-w-xs sm:max-w-sm">
+          <img
+            id="modalImage"
+            class="w-full h-40 sm:h-48 object-cover rounded-md mb-3 sm:mb-4"
+            src=""
+            alt="Product Image"
+          />
+          <p id="modalTitle" class="text-xl sm:text-2xl font-semibold mb-2"></p>
+          <p
+            id="modalDescription"
+            class="text-gray-700 mb-2 text-sm sm:text-base"
+          ></p>
+          <p id="modalPrice" class="text-lg font-bold mb-4"></p>
+          <div class="flex justify-center items-center gap-3 sm:gap-5">
+            <button
+              id="addToCartButton"
+              class="bg-rose-600 text-white px-3 py-1 sm:px-4 sm:py-2 rounded hover:bg-rose-700"
+            >
+              Add to Cart
+            </button>
+            <button
+              id="closeModal"
+              class="border border-red-600 text-rose-600 px-3 py-1 sm:px-5 sm:py-2 rounded hover:bg-rose-700 hover:text-white"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🛒 Cart Modal -->
+      <div
+        id="cartContainer"
+        class="cartModal fixed inset-0 bg-black/75 hidden justify-center items-center p-4"
+      >
+        <div class="bg-white p-4 sm:p-6 rounded-lg w-full max-w-xs sm:max-w-sm">
+          <h2 class="text-xl sm:text-2xl font-semibold mb-4">Your Cart</h2>
+          <div id="cartItems" class="mb-3 sm:mb-4">
+            <!-- Cart items will be injected here -->
+          </div>
+          <p class="text-base sm:text-lg font-bold">
+            Total: <span id="cartTotal">$0.00</span>
+          </p>
+          <div
+            class="flex justify-center items-center gap-3 sm:gap-5 mt-3 sm:mt-4"
+          >
+            <button
+              id="closeCart"
+              class="border border-red-600 text-rose-600 px-3 py-1 sm:px-5 sm:py-2 rounded hover:bg-rose-700 hover:text-white"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Counter -->
+      <button
+        id="cartButton"
+        class="fixed bottom-4 right-4 bg-rose-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full hover:bg-rose-700"
+      >
+        🛒 Cart: <span id="cartCount">0</span>
+      </button>
+    </section>
+
+    <div
+      class="w-full h-10 divider border-t border-b border-red-600 bg-rose-600/80"
+    ></div>
 
     <!-- ABOUT -->
     <section id="about" class="flex flex-col justify-center items-center">
       <div
-        class="font-semibold leading-relaxed text-lg text-pink-600 p-5 text-center text-wrap m-10 border border-pink-500 bg-rose-100 sm:p-6 sm:m-8 md:p-8 md:m-10 lg:p-10 lg:m-12 xl:p-12 xl:m-16"
+        class="font-semibold leading-relaxed text-lg text-rose-700 bg-pink-100 uppercase p-5 text-center text-wrap m-10 sm:p-6 sm:m-8 md:p-8 md:m-10 lg:p-10 lg:m-12 xl:p-12 xl:m-16 rounded-4xl"
       >
-        <p
-          class="tracking-widest italic bg-gradient-to-b to-pink-500 bg-clip-text text-transparent font-bold mb-5 sm:text-xl md:text-2xl lg:text-3xl pb-2"
-        >
-          Sunny Delights
-        </p>
-
         <p class="tracking-tight sm:text-base md:text-lg lg:text-xl">
           Bringing Warmth & Sweetness Since
           <i class="text-pink-300!">2023</i>&nbsp;!
@@ -489,129 +458,37 @@
       </div>
     </section>
 
-    <div class="w-full h-10 divider border-t border-b border-pink-500"></div>
-    <!-- temp divider -->
-    <div class="w-full h-10 bg-white"></div>
-
-    <!-- PRODUCTS -->
-    <section id="products" class="bg-pink-100 p-5">
-      <h1 class="text-3xl font-bold text-center text-pink-600 mb-6">
-        🍭 Our Sweet Collection 🍬
-      </h1>
-
-      <div
-        id="productGrid"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-      >
-        <!-- Products will be injected here -->
-      </div>
-
-      <!-- Modal Structure -->
-      <div
-        id="productModal"
-        class="modal fixed inset-0 bg-black/75 hidden justify-center items-center"
-      >
-        <div id="modalContent" class="bg-white p-6 rounded-lg w-80 sm:w-96">
-          <img
-            id="modalImage"
-            class="w-full h-48 object-cover rounded-md mb-4"
-            src=""
-            alt="Product Image"
-          />
-          <p id="modalTitle" class="text-2xl font-semibold mb-2"></p>
-          <p id="modalDescription" class="text-gray-700 mb-2"></p>
-          <p id="modalPrice" class="text-lg font-bold mb-4"></p>
-          <div class="flex justify-center items-center gap-5">
-            <button
-              id="addToCartButton"
-              class="bg-pink-500 text-white px-4 py-1 rounded hover:bg-pink-700"
-            >
-              Add to Cart
-            </button>
-            <button
-              id="closeModal"
-              class="border border-pink-600 text-pink-600 px-5 py-1 rounded hover:bg-pink-700 hover:text-white z-10"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 🛒 Cart Modal -->
-      <div
-        id="cartContainer"
-        class="cartModal fixed inset-0 bg-black/75 hidden justify-center items-center"
-      >
-        <div class="bg-white p-6 rounded-lg w-80 sm:w-96">
-          <h2 class="text-2xl font-semibold mb-4">Your Cart</h2>
-          <div id="cartItems" class="mb-4">
-            <!-- Cart items will be injected here -->
-          </div>
-          <p class="text-lg font-bold">
-            Total: <span id="cartTotal">$0.00</span>
-          </p>
-          <div class="flex justify-center items-center gap-5 mt-4">
-            <!-- <button
-              id="cartButton"
-              class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-700"
-            >
-              Checkout
-            </button> -->
-            <button
-              id="closeCart"
-              class="border border-pink-600 text-pink-600 px-5 py-1 rounded hover:bg-pink-700 hover:text-white"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Cart Counter -->
-      <button
-        id="cartButton"
-        class="fixed hover:cursor-pointer bottom-5 right-5 bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700"
-      >
-        🛒 Cart: <span id="cartCount">0</span>
-      </button>
-    </section>
+    <div
+      class="w-full h-10 divider border-t border-b border-red-600 bg-rose-600/80"
+    ></div>
 
     <!-- FOOTER -->
-    <footer class="text-white border-t border-pink-500">
-      <div class="flex justify-center">
-        <p
-          class="tracking-widest italic bg-gradient-to-b from-white to-rose-100 bg-clip-text text-transparent font-bold mb-5 p-5"
-        >
-          Sunny Delights
-        </p>
-      </div>
-
+    <footer class="text-pink-100 border-t border-red-600 bg-rose-400/80">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-4 px-6"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-4 p-6"
       >
         <div
           class="text-center flex flex-col items-center space-y-2 font-light"
         >
           <p
-            class="uppercase font-bold text-pink-500 border-b pb-1 w-full max-w-xs"
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
           >
             Products
           </p>
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Sunfire Cakes</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Sunlight Candies</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Sunny Lollipops</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Sunburst Chocolates</a
           >
         </div>
@@ -620,24 +497,24 @@
           class="text-center flex flex-col items-center space-y-2 font-light"
         >
           <p
-            class="uppercase font-bold text-pink-500 border-b pb-1 w-full max-w-xs"
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
           >
             Socials
           </p>
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             ><i class="ri-tiktok-line"></i> TikTok</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             ><i class="ri-twitter-x-line"></i> Twitter</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             ><i class="ri-instagram-line"></i> Instagram</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             ><i class="ri-facebook-box-line"></i> Facebook</a
           >
         </div>
@@ -646,20 +523,20 @@
           class="text-center flex flex-col items-center space-y-2 font-light"
         >
           <p
-            class="uppercase font-bold text-pink-500 border-b pb-1 w-full max-w-xs"
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
           >
             Information
           </p>
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >About Us</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Contact Us</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >FAQs</a
           >
         </div>
@@ -668,38 +545,36 @@
           class="text-center flex flex-col items-center space-y-2 font-light"
         >
           <p
-            class="uppercase font-bold text-pink-500 border-b pb-1 w-full max-w-xs"
+            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
           >
             More Of Us
           </p>
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Events</a
           >
           <a
-            class="hover:text-orange-200 transition duration-300 cursor-pointer"
+            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
             >Jobs</a
           >
         </div>
       </div>
 
-      <div
-        class="flex justify-center border-t border-pink-500 bg-pink-800 mt-6"
-      >
-        <p class="py-2 text-sm text-center">
+      <div class="flex justify-center border-t border-red-600 bg-rose-800 mt-6">
+        <p class="py-2 text-sm text-center text-pink-100">
           @2025 Sunny Delights. All rights reserved.
         </p>
       </div>
     </footer>
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- alpine js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
+      defer
+    ></script>
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
   </body>
-  <!-- aos -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- alpine js -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
-    defer
-  ></script>
-  <!-- swiper js -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
 </html>

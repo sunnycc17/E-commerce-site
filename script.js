@@ -1,12 +1,20 @@
-window.onload = function () {
-  new Swiper(".swiper", {
-    direction: "horizontal",
-    loop: true,
-    pagination: { el: ".swiper-pagination", clickable: true },
-    autoplay: { delay: 3000, disableOnInteraction: false },
-    keyboard: { enabled: true, onlyInViewport: true },
-  });
-};
+new Swiper(".swiper", {
+  spaceBetween: 12,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  autoplay: {
+    delay: 2500, // time between slides in ms
+    disableOnInteraction: false, // keeps autoplay even after manual interaction
+  },
+  breakpoints: {
+    640: { slidesPerView: 1.5, spaceBetween: 16 },
+    768: { slidesPerView: 2, spaceBetween: 20 },
+    1024: { slidesPerView: 3, spaceBetween: 24 },
+  },
+});
 
 AOS.init({ once: true });
 
@@ -50,18 +58,18 @@ function renderProducts() {
   productGrid.innerHTML = products
     .map(
       (product) => `
-      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition">
+      <div class="bg-rose-400/50 p-4 rounded-lg shadow-md hover:shadow-lg transition">
         <img src="${product.image}" alt="${product.name}" 
           class="w-full h-40 object-cover rounded-md mb-3">
         <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
-        <p class="text-pink-600 font-semibold">$${product.price.toFixed(2)}</p>
-        <button class="add-to-cart mt-3 bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-700"
+        <p class="text-rose-600 font-semibold">$${product.price.toFixed(2)}</p>
+        <button class="add-to-cart mt-3 bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700"
           data-id="${product.id}" data-name="${product.name}" data-price="${
         product.price
       }">
           Add to Cart
         </button>
-        <button class="view-product mt-3 ml-2 border border-pink-600 text-pink-600 px-3 py-1 rounded hover:bg-pink-700 hover:text-white"
+        <button class="view-product mt-3 border border-rose-600 text-rose-600 bg-pink-50  px-3 py-1 rounded hover:bg-rose-700 hover:text-white"
           data-id="${product.id}">
           View Product
         </button>

@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: #f7f6eb;
+}
+
 [x-cloak] {
   display: none !important;
 }
@@ -12,51 +16,4 @@
 .swiper-pagination-bullet-active {
   background-color: rgb(216, 171, 216) !important; /* Active dot color */
   opacity: 1;
-}
-
-body {
-  background-color: #ffe5ec;
-}
-
-header {
-  background-color: #ff8fab;
-}
-
-#sidebar,
-.divider {
-  background-color: #ff8fab;
-}
-
-/* .cat:hover {
-  background-color: #fff4c1;
-} */
-
-.home-box {
-  background-color: rgb(241, 168, 177);
-  border: 1px solid #f6339a;
-}
-
-/* Custom bounce animation that stops after 3 seconds */
-@keyframes bounceOnce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.bounce-limited {
-  animation: bounceOnce 1s ease-in-out 1;
-}
-
-/* .logo {
-  color: #ff8c42;
-  color: #e4572e; 
-  color: #d1495b;
-}*/
-
-footer {
-  background-color: rgb(241, 168, 177);
 }
