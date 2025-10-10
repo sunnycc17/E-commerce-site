@@ -9,7 +9,7 @@
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
     <link rel="stylesheet" href="src/output.css" />
-    <title>Sunny Delights | About Us</title>
+    <title>Sunny Delights | FAQs</title>
   </head>
   <body>
     <!-- HEADER AND NAVI BAR -->
@@ -152,87 +152,122 @@
             >Home</a
           >
           <a
-            href="#about"
+            href="about.html"
             class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
             >About</a
           >
           <a
-            href="#chocolates"
+            href="contact.html"
             class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
-            >Chocolates</a
+            >Contact</a
           >
           <a
-            href="#lollipops"
+            href="faq.html"
             class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
-            >Lollipops</a
-          >
-          <a
-            href="#candy"
-            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
-            >Candy</a
-          >
-          <a
-            href="#cookies"
-            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
-            >Cookies</a
-          >
-          <a
-            href="#cakes"
-            class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
-            >Cakes</a
+            >FAQs</a
           >
         </nav>
       </aside>
     </header>
 
-    <section id="about" class="py-24 bg-rose-50 mt-10">
-      <div
-        class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center"
-      >
-        <!-- Text Column -->
-        <div class="text-rose-600 leading-relaxed space-y-6">
-          <h1 class="text-5xl font-serif font-bold text-rose-500">
-            About Sunny Delights
-          </h1>
+    <!-- FAQ SECTION -->
+    <section class="py-24 bg-rose-50 mt-10">
+      <div class="max-w-4xl mx-auto px-6">
+        <h1
+          class="text-5xl font-serif font-bold text-rose-500 mb-12 text-center"
+        >
+          Frequently Asked Questions
+        </h1>
 
-          <p>
-            At <strong>Sunny Delights</strong>, we bring joy through handcrafted
-            sweets, chocolates, and candies. Our passion is creating treats that
-            brighten your day.
-          </p>
+        <div class="space-y-4">
+          <div
+            x-data="{ open: false }"
+            class="bg-rose-100 rounded-lg shadow-md p-4"
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center font-semibold text-rose-600"
+            >
+              What are your store hours?
+              <span x-text="open ? '-' : '+'"></span>
+            </button>
+            <p x-show="open" x-transition class="mt-2 text-rose-700">
+              We are open Monday to Saturday from 9 AM to 7 PM, and Sundays from
+              10 AM to 5 PM.
+            </p>
+          </div>
 
-          <p>
-            Founded in 2023, Sunny Delights started as a small home-based candy
-            project. We believe every sweet deserves love, care, and a sprinkle
-            of happiness.
-          </p>
+          <div
+            x-data="{ open: false }"
+            class="bg-rose-100 rounded-lg shadow-md p-4"
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center font-semibold text-rose-600"
+            >
+              Do you offer shipping?
+              <span x-text="open ? '-' : '+'"></span>
+            </button>
+            <p x-show="open" x-transition class="mt-2 text-rose-700">
+              Yes, we ship nationwide and offer tracking on all orders.
+            </p>
+          </div>
 
-          <p>
-            Our mission is simple: deliver high-quality, delicious treats to
-            every corner of the world. Each candy is crafted to bring smiles and
-            delight.
-          </p>
+          <div
+            x-data="{ open: false }"
+            class="bg-rose-100 rounded-lg shadow-md p-4"
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center font-semibold text-rose-600"
+            >
+              Can I customize my order?
+              <span x-text="open ? '-' : '+'"></span>
+            </button>
+            <p x-show="open" x-transition class="mt-2 text-rose-700">
+              Yes, we offer custom orders for events and special occasions.
+              Contact us with your requirements.
+            </p>
+          </div>
 
-          <p>
-            We love only the finest ingredients, sourced responsibly, ensuring
-            every bite is fresh, tasty, and memorable. We love sharing our
-            sweets at local events and engaging with our community. Join us for
-            seasonal creations that celebrate the joy of sweetness.
-          </p>
-        </div>
+          <div
+            x-data="{ open: false }"
+            class="bg-rose-100 rounded-lg shadow-md p-4"
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center font-semibold text-rose-600"
+            >
+              Where do you source your ingredients?
+              <span x-text="open ? '-' : '+'"></span>
+            </button>
+            <p x-show="open" x-transition class="mt-2 text-rose-700">
+              All our ingredients are responsibly sourced from local and
+              international suppliers to ensure the highest quality.
+            </p>
+          </div>
 
-        <!-- Image Column -->
-        <div class="flex justify-center items-center mx-auto md:justify-end">
-          <img
-            src="public/store.png"
-            alt="Sunny Delights storefront"
-            class="rounded-lg shadow-md w-80 md:w-[24rem] object-cover"
-          />
+          <div
+            x-data="{ open: false }"
+            class="bg-rose-100 rounded-lg shadow-md p-4"
+          >
+            <button
+              @click="open = !open"
+              class="w-full flex justify-between items-center font-semibold text-rose-600"
+            >
+              How can I contact customer service?
+              <span x-text="open ? '-' : '+'"></span>
+            </button>
+            <p x-show="open" x-transition class="mt-2 text-rose-700">
+              You can reach us via our contact form, email, or through our
+              social media channels.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CART ICON (reuse from homepage) -->
+    <!-- CART ICON -->
     <button
       id="cartButton"
       class="fixed bottom-4 right-4 bg-rose-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full hover:bg-rose-700 hover:cursor-pointer"
