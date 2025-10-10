@@ -63,13 +63,13 @@ function renderProducts() {
           class="w-full h-40 object-cover rounded-md mb-3">
         <h2 class="text-lg font-bold text-gray-800">${product.name}</h2>
         <p class="text-rose-600 font-semibold">$${product.price.toFixed(2)}</p>
-        <button class="add-to-cart mt-3 bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700"
+        <button class="add-to-cart mt-3 bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700 hover:cursor-pointer"
           data-id="${product.id}" data-name="${product.name}" data-price="${
         product.price
       }">
           Add to Cart
         </button>
-        <button class="view-product mt-3 border border-rose-600 text-rose-600 bg-pink-50  px-3 py-1 rounded hover:bg-rose-700 hover:text-white"
+        <button class="view-product mt-3 hover:cursor-pointer border border-rose-600 text-rose-600 bg-pink-50  px-3 py-1 rounded hover:bg-rose-700 hover:text-white"
           data-id="${product.id}">
           View Product
         </button>
@@ -125,7 +125,7 @@ function showCart() {
         <span>${item.name} [${item.quantity}] - $${(
         item.price * item.quantity
       ).toFixed(2)}</span>
-        <button class="remove-from-cart text-red-500" data-index="${index}">Remove</button>
+        <button class="remove-from-cart  hover:cursor-pointer border border-rose-600 text-rose-600 bg-pink-50  px-3 py-1 rounded hover:bg-rose-700 hover:text-white" data-index="${index}">Remove</button>
       </div>`
     )
     .join("");
