@@ -94,12 +94,12 @@
           </a>
         </div>
 
-        <!-- Search (hidden on xs) -->
-        <div class="hidden sm:flex items-center w-1/3">
+        <!-- Search -->
+        <div class="hidden sm:flex items-center w-1/3 relative">
           <div class="relative w-full">
-            <label for="search" class="sr-only">Search candies</label>
+            <label for="searchbox" class="sr-only">Search candies</label>
             <input
-              id="search"
+              id="searchbox"
               type="text"
               placeholder="Search candies..."
               class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
@@ -124,6 +124,11 @@
               </svg>
             </div>
           </div>
+
+          <ul
+            id="hits-dropdown"
+            class="absolute top-full left-0 w-full mt-1 bg-white text-rose-800 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50"
+          ></ul>
         </div>
 
         <!-- Mobile menu button -->
@@ -404,7 +409,7 @@
       <!-- 🛒 Cart Modal -->
       <div
         id="cartContainer"
-        class="cartModal fixed inset-0 bg-black/75 hidden justify-center items-center p-4"
+        class="cartModal fixed inset-0 bg-black/75 hidden justify-center items-center p-4 z-50"
       >
         <div class="bg-white p-4 sm:p-6 rounded-lg w-full max-w-xs sm:max-w-sm">
           <h2 class="text-xl sm:text-2xl font-semibold mb-4">Your Cart</h2>
@@ -579,6 +584,9 @@
     ></script>
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Algolia scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
