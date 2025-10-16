@@ -75,8 +75,7 @@
       aria-label="Main site header"
     >
       <nav
-        class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-6"
-        aria-label="Global navigation"
+        class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
       >
         <!-- Logo -->
         <div
@@ -95,8 +94,10 @@
         </div>
 
         <!-- Search -->
-        <div class="hidden sm:flex items-center w-1/3 relative">
-          <div class="relative w-full">
+        <div
+          class="hidden sm:flex flex-1 items-center justify-center relative mx-4"
+        >
+          <div class="relative w-full max-w-md">
             <label for="searchbox" class="sr-only">Search candies</label>
             <input
               id="searchbox"
@@ -133,17 +134,23 @@
 
         <!-- Desktop links -->
         <div
-          class="hidden lg:flex items-center gap-6 text-pink-100 font-semibold"
+          class="hidden lg:flex items-center gap-8 text-pink-100 font-semibold"
         >
           <a href="home" class="hover:text-white transition-colors">Home</a>
+          <a href="aboutus.html" class="hover:text-white transition-colors"
+            >About</a
+          >
+          <a href="contactus.html" class="hover:text-white transition-colors"
+            >Contact</a
+          >
           <a href="faq.html" class="hover:text-white transition-colors">FAQ</a>
         </div>
 
         <!-- Mobile menu button -->
-        <div class="flex items-center">
+        <div class="flex items-center lg:hidden">
           <button
             type="button"
-            class="inline-flex h-8.5 items-center justify-center rounded-md p-2 text-pink-100/80 bg-rose-700 border border-white/40 lg:hidden"
+            class="inline-flex h-8.5 items-center justify-center rounded-md p-2 text-pink-100/80 bg-rose-700 border border-white/40"
             @click="open = !open"
             :aria-expanded="open"
             aria-label="Toggle menu"
@@ -263,7 +270,7 @@
             >Home</a
           >
           <a
-            href="#about"
+            href="aboutus.html"
             class="block px-3 py-2 font-semibold text-pink-100 hover:bg-pink-100/10 rounded"
             @click="open = false"
             >About</a
@@ -515,34 +522,8 @@
     <!-- FOOTER -->
     <footer class="text-pink-100 border-t border-red-600 bg-rose-400/80">
       <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-center items-start gap-4 p-6"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-4 p-6"
       >
-        <div
-          class="text-center flex flex-col items-center space-y-2 font-light"
-        >
-          <p
-            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
-          >
-            Products
-          </p>
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Sunfire Cakes</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Sunlight Candies</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Sunny Lollipops</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Sunburst Chocolates</a
-          >
-        </div>
-
         <div
           class="text-center flex flex-col items-center space-y-2 font-light"
         >
@@ -580,12 +561,12 @@
           <a
             href="aboutus.html"
             class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >About Us</a
+            >About</a
           >
           <a
             href="contactus.html"
             class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Contact Us</a
+            >Contact</a
           >
           <a
             href="faq.html"
