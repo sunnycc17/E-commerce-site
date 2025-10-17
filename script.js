@@ -6,7 +6,10 @@ if (swiperEl) {
     loop: true,
     pagination: { el: ".swiper-pagination", clickable: true },
     autoplay: { delay: 2500, disableOnInteraction: false },
-    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
     breakpoints: {
       640: { slidesPerView: 1.5, spaceBetween: 16 },
       768: { slidesPerView: 2, spaceBetween: 20 },
@@ -14,7 +17,6 @@ if (swiperEl) {
     },
   });
 }
-
 
 // ----- Elements -----
 const productGrid = document.getElementById("productGrid");
@@ -86,11 +88,11 @@ function renderProducts() {
       }" class="w-full h-40 object-cover rounded-md mb-3">
         <h2 class="text-lg font-bold text-gray-800">${p.name}</h2>
         <p class="text-rose-600 font-semibold">$${p.price.toFixed(2)}</p>
-        <button class="add-to-cart mt-3 bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700" 
+        <button class="add-to-cart mt-3 bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700 cursor-pointer" 
           data-id="${p.id}" data-name="${p.name}" data-price="${p.price}">
           Add to Cart
         </button>
-        <button class="view-product mt-3 border border-rose-600 text-rose-600 bg-pink-50 px-3 py-1 rounded hover:bg-rose-700 hover:text-white" 
+        <button class="view-product mt-3 border border-rose-600 text-rose-600 bg-pink-50 px-3 py-1 rounded hover:bg-rose-700 hover:text-white cursor-pointer" 
           data-id="${p.id}">
           View Product
         </button>
@@ -119,7 +121,7 @@ function showCart() {
         <span>${i.name} [${i.quantity}] - $${(i.price * i.quantity).toFixed(
         2
       )}</span>
-        <button class="remove-from-cart border border-rose-600 text-rose-600 bg-pink-50 px-3 py-1 rounded hover:bg-rose-700 hover:text-white" data-index="${idx}">Remove</button>
+        <button class="remove-from-cart border cursor-pointer border-rose-600 text-rose-600 bg-pink-50 px-3 py-1 rounded hover:bg-rose-700 hover:text-white" data-index="${idx}">Remove</button>
       </div>`
     )
     .join("");
