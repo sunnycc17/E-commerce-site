@@ -371,9 +371,13 @@
       >
         <div class="bg-white p-4 sm:p-6 rounded-lg w-full max-w-xs sm:max-w-sm">
           <h2 class="text-xl sm:text-2xl font-semibold mb-4">Your Cart</h2>
-          <div id="cartItems" class="mb-3 sm:mb-4">
+          <div
+            id="cartItems"
+            class="mb-3 sm:mb-4 max-h-60 overflow-y-auto pr-1 space-y-2"
+          >
             <!-- Cart items will be injected here -->
           </div>
+
           <p class="text-base sm:text-lg font-bold">
             Total: <span id="cartTotal">$0.00</span>
           </p>
