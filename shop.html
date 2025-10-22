@@ -4,14 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="public/icon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <link rel="stylesheet" href="src/output.css" />
-    <title>Sunny Delights | FAQs</title>
+    <!-- seo meta tags -->
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Sunny Delights | A Sweet Dream" />
+    <meta
+      name="description"
+      content="Discover a world of delicious candies, chocolates, and sweet treats at Sunny Delights! Indulge in your sweetest dreams."
+    />
+    <meta
+      name="keywords"
+      content="candy, chocolates, sweets, desserts, lollipops, cookies, cakes, Sunny Delights"
+    />
+    <meta name="author" content="Sunny Delights" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ff69b4" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sunnycc17.github.io/E-commerce-site/"
+    />
+    <meta property="og:title" content="Sunny Delights | A Sweet Dream" />
+    <meta
+      property="og:description"
+      content="Discover a world of delicious candies, chocolates, and sweet treats at Sunny Delights! Indulge in your sweetest dreams."
+    />
+    <meta
+      property="og:image"
+      content="https://sunnycc17.github.io/E-commerce-site/public/meta.png"
+    />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:url"
+      content="https://sunnycc17.github.io/E-commerce-site/"
+    />
+    <meta name="twitter:title" content="Sunny Delights | A Sweet Dream" />
+    <meta
+      name="twitter:description"
+      content="Discover a world of delicious candies, chocolates, and sweet treats at Sunny Delights! Indulge in your sweetest dreams."
+    />
+    <meta
+      name="twitter:image"
+      content="https://sunnycc17.github.io/E-commerce-site/public/meta.png"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/icon.png" />
+
+    <!-- remix icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Sunny Delights | A Sweet Dream</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <!-- HEADER AND NAVI BAR -->
     <header
       class="fixed top-0 z-40 w-full border-b bg-rose-600/80 backdrop-blur-sm border-rose-500"
@@ -68,11 +119,6 @@
                 />
               </svg>
             </div>
-
-            <ul
-              id="hits-dropdown"
-              class="absolute top-full left-0 w-full mt-1 bg-white text-rose-800 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50"
-            ></ul>
           </div>
         </div>
 
@@ -201,10 +247,6 @@
                 />
               </svg>
             </div>
-            <ul
-              id="mobile-hits-dropdown"
-              class="absolute top-full left-0 w-full mt-1 bg-white text-rose-800 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50"
-            ></ul>
           </div>
         </div>
 
@@ -249,105 +291,8 @@
       </aside>
     </header>
 
-    <!-- FAQ SECTION -->
-    <section id="home" class="py-24 bg-rose-50 mt-10">
-      <div class="max-w-4xl mx-auto px-6">
-        <h1
-          class="text-5xl font-serif font-bold text-rose-500 mb-12 text-center"
-        >
-          Frequently Asked Questions
-        </h1>
-
-        <div class="space-y-4">
-          <div
-            x-data="{ open: false }"
-            class="bg-rose-100 rounded-lg shadow-md p-4"
-          >
-            <button
-              @click="open = !open"
-              class="w-full flex justify-between items-center font-semibold text-rose-600"
-            >
-              What are your store hours?
-              <span x-text="open ? '-' : '+'"></span>
-            </button>
-            <p x-show="open" x-transition class="mt-2 text-rose-700">
-              We are open Monday to Saturday from 9 AM to 7 PM, and Sundays from
-              10 AM to 5 PM.
-            </p>
-          </div>
-
-          <div
-            x-data="{ open: false }"
-            class="bg-rose-100 rounded-lg shadow-md p-4"
-          >
-            <button
-              @click="open = !open"
-              class="w-full flex justify-between items-center font-semibold text-rose-600"
-            >
-              Do you offer shipping?
-              <span x-text="open ? '-' : '+'"></span>
-            </button>
-            <p x-show="open" x-transition class="mt-2 text-rose-700">
-              Yes, we ship nationwide and offer tracking on all orders.
-            </p>
-          </div>
-
-          <div
-            x-data="{ open: false }"
-            class="bg-rose-100 rounded-lg shadow-md p-4"
-          >
-            <button
-              @click="open = !open"
-              class="w-full flex justify-between items-center font-semibold text-rose-600"
-            >
-              Can I customize my order?
-              <span x-text="open ? '-' : '+'"></span>
-            </button>
-            <p x-show="open" x-transition class="mt-2 text-rose-700">
-              Yes, we offer custom orders for events and special occasions.
-              Contact us with your requirements.
-            </p>
-          </div>
-
-          <div
-            x-data="{ open: false }"
-            class="bg-rose-100 rounded-lg shadow-md p-4"
-          >
-            <button
-              @click="open = !open"
-              class="w-full flex justify-between items-center font-semibold text-rose-600"
-            >
-              Where do you source your ingredients?
-              <span x-text="open ? '-' : '+'"></span>
-            </button>
-            <p x-show="open" x-transition class="mt-2 text-rose-700">
-              All our ingredients are responsibly sourced from local and
-              international suppliers to ensure the highest quality.
-            </p>
-          </div>
-
-          <div
-            x-data="{ open: false }"
-            class="bg-rose-100 rounded-lg shadow-md p-4"
-          >
-            <button
-              @click="open = !open"
-              class="w-full flex justify-between items-center font-semibold text-rose-600"
-            >
-              How can I contact customer service?
-              <span x-text="open ? '-' : '+'"></span>
-            </button>
-            <p x-show="open" x-transition class="mt-2 text-rose-700">
-              You can reach us via our contact form, email, or through our
-              social media channels.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- PRODUCTS -->
-    <section id="products" class="bg-pink-100 p-4 sm:p-5">
+    <section id="products" class="flex-1 bg-pink-100 p-4 sm:p-5 mt-20">
       <div
         id="productGrid"
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
@@ -512,13 +457,13 @@
         </p>
       </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch.umd.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
       defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
-    <!-- Algolia scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-    <script src="script.js"></script>
+
+    <script src="cart.js"></script>
+    <script src="shop.js"></script>
   </body>
 </html>

@@ -320,7 +320,7 @@
           <p class="text-rose-400 text-sm sm:text-base opacity-70">
             Indulge in sweetness crafted with love
           </p>
-          <p class="text-rose-400 text-sm sm:text-base opacity-60 mb-6">
+          <p class="text-rose-400 text-sm sm:text-base opacity-60 pb-10">
             From fluffy marshmallows to rich chocolates, every treat is made to
             brighten your day.
           </p>
@@ -399,29 +399,39 @@
 
     <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
 
-    <!-- PRODUCTS -->
-    <section id="products" class="bg-pink-100 p-4 sm:p-5">
-      <div class="flex justify-center items-center my-8 sm:my-12">
-        <span class="text-2xl sm:text-3xl mr-2">🍭</span>
-        <h1
-          class="text-xl sm:text-3xl md:text-4xl font-bold text-rose-600 text-center"
-          style="
-            font-size: calc(
-              1.5rem + (2rem - 1.5rem) * ((100vw - 222px) / (280 - 222))
-            );
-          "
-        >
-          Our Sweet Collection
-        </h1>
-        <span class="text-2xl sm:text-3xl ml-2">🍬</span>
-      </div>
+    <section class="bg-pink-100 p-4 sm:p-5">
+      <h1
+        class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
+      >
+        New Arrivals
+      </h1>
+      <div
+        id="newProducts"
+        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+      ></div>
+    </section>
+
+    <section class="bg-pink-100 p-4 sm:p-5">
+      <h1
+        class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
+      >
+        Best Sellers
+      </h1>
 
       <div
+        id="bestSellers"
+        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+      ></div>
+    </section>
+
+    <script src="index.js"></script>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="bg-pink-100 p-4 sm:p-5">
+      <div
         id="productGrid"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-      >
-        <!-- Products will be injected here -->
-      </div>
+        class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+      ></div>
 
       <!-- Modal Structure -->
       <div
@@ -497,117 +507,175 @@
       </button>
     </section>
 
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
+
     <div
-      class="w-full h-10 divider border-t border-b border-red-600 bg-rose-600/80"
+      class="w-full h-3 bg-gradient-to-r from-pink-100 via-rose-600 to-pink-200 shadow-md rounded"
     ></div>
 
-    <!-- ABOUT -->
-    <section id="about" class="flex flex-col justify-center items-center">
-      <div
-        class="font-semibold leading-relaxed text-lg text-rose-700 bg-pink-100 uppercase p-5 text-center text-wrap m-10 sm:p-6 sm:m-8 md:p-8 md:m-10 lg:p-10 lg:m-12 xl:p-12 xl:m-16 rounded-4xl"
-      >
-        <p class="tracking-tight sm:text-base md:text-lg lg:text-xl">
-          Bringing Warmth & Sweetness Since
-          <i class="text-pink-300!">2023</i>&nbsp;!
-        </p>
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
 
-        <p class="tracking-tight sm:text-base md:text-lg lg:text-xl">
+    <!-- ABOUT -->
+    <section
+      id="about"
+      class="flex flex-col justify-center items-center py-12 bg-pink-50"
+    >
+      <div
+        class="w-full max-w-4xl bg-pink-100 rounded-3xl p-8 sm:p-10 md:p-12 text-center shadow-lg border border-rose-200"
+      >
+        <h2
+          class="text-3xl sm:text-4xl font-bold text-rose-600 mb-4 tracking-tight"
+        >
+          Bringing Warmth & Sweetness Since
+          <span class="text-pink-300">2023</span>
+        </h2>
+
+        <p class="text-gray-700 sm:text-lg md:text-xl mb-4">
           From fluffy marshmallows to rich chocolates
         </p>
 
-        <p class="tracking-tight sm:text-base md:text-lg lg:text-xl">
+        <p class="text-gray-700 sm:text-lg md:text-xl">
           Every treat is crafted with love to brighten your day!
         </p>
       </div>
     </section>
 
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
+
     <div
-      class="w-full h-10 divider border-t border-b border-red-600 bg-rose-600/80"
+      class="w-full h-3 bg-gradient-to-r from-pink-100 via-rose-600 to-pink-200 shadow-md rounded"
     ></div>
 
+    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
+
+    <section id="blog" class="bg-pink-100 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
+        >
+          From our blog
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Blog Card 1 -->
+          <div
+            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+          >
+            <img
+              src="https://images.pexels.com/photos/2236703/pexels-photo-2236703.jpeg"
+              alt="Blog 1"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-rose-600 mb-2">
+                5 Sweet Treats to Try This Summer
+              </h3>
+              <p class="text-gray-700 text-sm mb-3">
+                Discover refreshing candies and chocolates perfect for sunny
+                days. Your taste buds will thank you!
+              </p>
+              <a href="#" class="text-rose-700 font-semibold hover:underline"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Blog Card 2 -->
+          <div
+            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+          >
+            <img
+              src="https://images.pexels.com/photos/6441630/pexels-photo-6441630.jpeg"
+              alt="Blog 2"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-rose-600 mb-2">
+                The Art of Chocolate Making
+              </h3>
+              <p class="text-gray-700 text-sm mb-3">
+                Dive into the process of creating rich, decadent chocolates from
+                bean to bar.
+              </p>
+              <a href="#" class="text-rose-700 font-semibold hover:underline"
+                >Read More →</a
+              >
+            </div>
+          </div>
+
+          <!-- Blog Card 3 -->
+          <div
+            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
+          >
+            <img
+              src="https://images.pexels.com/photos/10477126/pexels-photo-10477126.jpeg"
+              alt="Blog 3"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-rose-600 mb-2">
+                Candy Pairings with Your Favorite Drinks
+              </h3>
+              <p class="text-gray-700 text-sm mb-3">
+                Enhance your coffee, tea, or wine with the perfect candy pairing
+                tips from our experts.
+              </p>
+              <a href="#" class="text-rose-700 font-semibold hover:underline"
+                >Read More →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
-    <footer class="text-pink-100 border-t border-red-600 bg-rose-400/80">
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center items-start gap-4 p-6"
-      >
-        <div
-          class="text-center flex flex-col items-center space-y-2 font-light"
-        >
-          <p
-            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
-          >
-            Socials
-          </p>
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            ><i class="ri-tiktok-line"></i> TikTok</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            ><i class="ri-twitter-x-line"></i> Twitter</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            ><i class="ri-instagram-line"></i> Instagram</a
-          >
-          <a
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            ><i class="ri-facebook-box-line"></i> Facebook</a
-          >
-        </div>
+<footer class="bg-rose-500/80 text-rose-50 font-sans border-t border-rose-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <div
-          class="text-center flex flex-col items-center space-y-2 font-light"
-        >
-          <p
-            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
-          >
-            Information
-          </p>
-          <a
-            href="aboutus.html"
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >About</a
-          >
-          <a
-            href="contactus.html"
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Contact</a
-          >
-          <a
-            href="faq.html"
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >FAQs</a
-          >
-        </div>
+    <!-- Socials -->
+    <div class="flex flex-col space-y-2">
+      <p class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg">
+        Follow Us
+      </p>
+      <a class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">TikTok</a>
+      <a class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">Twitter</a>
+      <a class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">Instagram</a>
+    </div>
 
-        <div
-          class="text-center flex flex-col items-center space-y-2 font-light"
-        >
-          <p
-            class="uppercase font-bold text-rose-600/80 border-b pb-1 w-full max-w-xs"
-          >
-            More Of Us
-          </p>
-          <a
-            href="events.html"
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Events</a
-          >
-          <a
-            href="jobs.html"
-            class="hover:text-rose-600/80 transition duration-300 cursor-pointer"
-            >Jobs</a
-          >
-        </div>
-      </div>
+    <!-- Information -->
+    <div class="flex flex-col space-y-2">
+      <p class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg">
+        Information
+      </p>
+      <a href="aboutus.html" class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">About</a>
+      <a href="contactus.html" class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">Contact</a>
+      <a href="faq.html" class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">FAQs</a>
+    </div>
 
-      <div class="flex justify-center border-t border-red-600 bg-rose-800 mt-6">
-        <p class="py-2 text-sm text-center text-pink-100">
-          @2025 Sunny Delights. All rights reserved.
-        </p>
-      </div>
-    </footer>
+    <!-- More Sweetness -->
+    <div class="flex flex-col space-y-2">
+      <p class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg">
+        More Sweetness
+      </p>
+      <a href="events.html" class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">Events</a>
+      <a href="jobs.html" class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium">Jobs</a>
+      <span class="italic text-pink-100 mt-2 max-w-xs font-light">
+        “Life is sweeter with sprinkles on top!” 🍬
+      </span>
+    </div>
+
+  </div>
+
+  <div class="mt-6 bg-rose-400/80">
+    <p class="py-2 text-sm text-center px-4 sm:px-6 lg:px-8">
+      <span class="text-pink-100 font-semibold">© 2025 Sunny Delights.</span>
+      <span class="text-pink-300 font-serif italic">All rights reserved.</span>
+    </p>
+  </div>
+</footer>
+
+
     <!-- alpine js -->
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
@@ -618,6 +686,29 @@
 
     <!-- Algolia scripts -->
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-    <script src="script.js"></script>
+    <script>
+      const swiperEl = document.querySelector(".swiper");
+      if (swiperEl) {
+        new Swiper(".swiper", {
+          spaceBetween: 12,
+          loop: true,
+          pagination: { el: ".swiper-pagination", clickable: true },
+          autoplay: { delay: 2500, disableOnInteraction: false },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            640: { slidesPerView: 1.5, spaceBetween: 16 },
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 24 },
+          },
+        });
+      }
+    </script>
+
+    <script src="cart.js"></script>
+    <script src="shop.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
