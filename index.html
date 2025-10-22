@@ -305,6 +305,7 @@
       </aside>
     </header>
 
+    <!-- HOME -->
     <section
       id="home"
       class="flex flex-col justify-center items-center sm:pt-32 lg:pt-36 py-12 mt-12"
@@ -324,6 +325,18 @@
             From fluffy marshmallows to rich chocolates, every treat is made to
             brighten your day.
           </p>
+        </div>
+
+        <!-- CTA Button -->
+        <div
+          class="mt-6 items-center text-center bg-rose-400/50 rounded-full border border-rose-600 border-dashed"
+        >
+          <a
+            href="shop.html"
+            class="bg-rose-500 hover:bg-rose-600 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-300"
+          >
+            Shop Now
+          </a>
         </div>
 
         <!-- Swiper Carousel -->
@@ -405,29 +418,28 @@
     </div>
 
     <!-- NEW ARRIVALS AND BEST SELLERS -->
-    <section>
-      <div class="p-4 sm:p-5">
+    <section class="max-w-7xl flex flex-col items-center mx-auto">
+      <div class="w-full flex flex-col items-center p-6 sm:p-5">
         <h1
-          class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
+          class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-6 text-center"
         >
           New Arrivals
         </h1>
         <div
           id="newProducts"
-          class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-stretch"
         ></div>
       </div>
 
-      <div class="p-4 sm:p-5">
+      <div class="w-full flex flex-col items-center p-6 sm:p-5 mt-12">
         <h1
-          class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
+          class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-6 text-center"
         >
           Best Sellers
         </h1>
-
         <div
           id="bestSellers"
-          class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-stretch"
         ></div>
       </div>
     </section>
