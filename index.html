@@ -515,123 +515,67 @@
 
     <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
 
-    <!-- ABOUT -->
-    <section
-      id="about"
-      class="flex flex-col justify-center items-center py-12 bg-pink-50"
-    >
-      <div
-        class="w-full max-w-4xl bg-pink-100 rounded-3xl p-8 sm:p-10 md:p-12 text-center shadow-lg border border-rose-200"
-      >
-        <h2
-          class="text-3xl sm:text-4xl font-bold text-rose-600 mb-4 tracking-tight"
-        >
-          Bringing Warmth & Sweetness Since
-          <span class="text-pink-300">2023</span>
-        </h2>
+    <!-- BLOG -->
+ <section id="blog" class="flex flex-col items-center bg-pink-50 py-16">
+  <!-- Intro Block -->
+  <div class="w-full max-w-4xl rounded-3xl p-8 sm:p-10 md:p-12 text-center">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-rose-600 mb-4 tracking-tight">
+      Sweet Cakes & Delicious Treats
+    </h2>
+    <p class="text-gray-700/80 sm:text-base md:text-lg font-medium mb-2">
+      From layered cakes to handcrafted candies, every bite is made to delight
+    </p>
+    <p class="text-gray-700/80 sm:text-base md:text-lg font-medium">
+      Savor the sweetness that makes life a little brighter
+    </p>
+  </div>
 
-        <p class="text-gray-700 sm:text-lg md:text-xl mb-4">
-          From fluffy marshmallows to rich chocolates
-        </p>
-
-        <p class="text-gray-700 sm:text-lg md:text-xl">
-          Every treat is crafted with love to brighten your day!
-        </p>
-      </div>
-    </section>
-
-    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
-
-    <div
-      class="w-full h-3 bg-gradient-to-r from-pink-100 via-rose-600 to-pink-200 shadow-md rounded"
-    ></div>
-
-    <div class="w-full h-px border-t border-dashed border-rose-400 my-6"></div>
-
-    <section id="blog" class="bg-pink-100 py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-2xl uppercase text-rose-600 p-6 underline underline-offset-8 font-bold"
-        >
-          From our blog
-        </h2>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Blog Card 1 -->
-          <div
-            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
-          >
-            <img
-              src="https://images.pexels.com/photos/2236703/pexels-photo-2236703.jpeg"
-              alt="Blog 1"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-rose-600 mb-2">
-                5 Sweet Treats to Try This Summer
-              </h3>
-              <p class="text-gray-700 text-sm mb-3">
-                Discover refreshing candies and chocolates perfect for sunny
-                days. Your taste buds will thank you!
-              </p>
-              <a href="#" class="text-rose-700 font-semibold hover:underline"
-                >Read More →</a
-              >
-            </div>
-          </div>
-
-          <!-- Blog Card 2 -->
-          <div
-            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
-          >
-            <img
-              src="https://images.pexels.com/photos/6441630/pexels-photo-6441630.jpeg"
-              alt="Blog 2"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-rose-600 mb-2">
-                The Art of Chocolate Making
-              </h3>
-              <p class="text-gray-700 text-sm mb-3">
-                Dive into the process of creating rich, decadent chocolates from
-                bean to bar.
-              </p>
-              <a href="#" class="text-rose-700 font-semibold hover:underline"
-                >Read More →</a
-              >
-            </div>
-          </div>
-
-          <!-- Blog Card 3 -->
-          <div
-            class="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden"
-          >
-            <img
-              src="https://images.pexels.com/photos/10477126/pexels-photo-10477126.jpeg"
-              alt="Blog 3"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-semibold text-rose-600 mb-2">
-                Candy Pairings with Your Favorite Drinks
-              </h3>
-              <p class="text-gray-700 text-sm mb-3">
-                Enhance your coffee, tea, or wine with the perfect candy pairing
-                tips from our experts.
-              </p>
-              <a href="#" class="text-rose-700 font-semibold hover:underline"
-                >Read More →</a
-              >
-            </div>
-          </div>
+  <!-- Blog Cards Grid -->
+  <div class="w-full max-w-7xl mt-12 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Card Component -->
+      <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/2236703/pexels-photo-2236703.jpeg" alt="Blog 1" class="w-full h-48 object-cover"/>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="text-xl font-semibold text-rose-600 mb-2">5 Sweet Treats to Try This Summer</h3>
+          <p class="text-gray-700 text-sm mb-3 flex-1">
+            Discover refreshing candies and chocolates perfect for sunny days. Your taste buds will thank you!
+          </p>
+          <a href="#" class="text-rose-700 font-semibold hover:underline mt-auto">Read More →</a>
         </div>
       </div>
-    </section>
+
+      <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/6441630/pexels-photo-6441630.jpeg" alt="Blog 2" class="w-full h-48 object-cover"/>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="text-xl font-semibold text-rose-600 mb-2">The Art of Chocolate Making</h3>
+          <p class="text-gray-700 text-sm mb-3 flex-1">
+            Dive into the process of creating rich, decadent chocolates from bean to bar.
+          </p>
+          <a href="#" class="text-rose-700 font-semibold hover:underline mt-auto">Read More →</a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/10477126/pexels-photo-10477126.jpeg" alt="Blog 3" class="w-full h-48 object-cover"/>
+        <div class="p-4 flex flex-col flex-1">
+          <h3 class="text-xl font-semibold text-rose-600 mb-2">Candy Pairings with Your Drinks</h3>
+          <p class="text-gray-700 text-sm mb-3 flex-1">
+            Enhance your coffee, tea, or wine with the perfect candy pairing tips from our experts.
+          </p>
+          <a href="#" class="text-rose-700 font-semibold hover:underline mt-auto">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
     <!-- FOOTER -->
     <footer
-      class="bg-rose-500/80 text-rose-50 font-sans border-t border-rose-400"
+      class="bg-rose-500/80 text-white font-sans border-t border-rose-400"
+      style="text-shadow: 2px 2px 4px rgba(66, 62, 62, 0.7)"
     >
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8"
@@ -644,15 +588,15 @@
             Follow Us
           </p>
           <a
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             ><i class="ri-tiktok-line"></i> TikTok</a
           >
           <a
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             ><i class="ri-twitter-x-line"></i> Twitter</a
           >
           <a
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             ><i class="ri-instagram-line"></i> Instagram</a
           >
         </div>
@@ -666,17 +610,17 @@
           </p>
           <a
             href="aboutus.html"
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             >About</a
           >
           <a
             href="contactus.html"
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             >Contact</a
           >
           <a
             href="faq.html"
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             >FAQs</a
           >
         </div>
@@ -690,12 +634,12 @@
           </p>
           <a
             href="events.html"
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             >Events</a
           >
           <a
             href="jobs.html"
-            class="hover:text-pink-200 transition duration-300 cursor-pointer font-medium"
+            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
             >Jobs</a
           >
           <span class="italic text-pink-100 mt-2 max-w-xs font-light">
@@ -704,14 +648,10 @@
         </div>
       </div>
 
-      <div class="mt-6 bg-rose-400/80">
+      <div class="mt-6 border-t border-white/20">
         <p class="py-2 text-sm text-center px-4 sm:px-6 lg:px-8">
-          <span class="text-pink-100 font-semibold"
-            >© 2025 Sunny Delights.</span
-          >
-          <span class="text-pink-300 font-serif italic"
-            >All rights reserved.</span
-          >
+          <span class="text-white italic">© 2025 Sunny Delights |</span>
+          <span class="font-serif text-white">All rights reserved.</span>
         </p>
       </div>
     </footer>
@@ -721,6 +661,7 @@
       src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
       defer
     ></script>
+
     <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
