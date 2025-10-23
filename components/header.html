@@ -10,16 +10,16 @@
   >
     <!-- Logo -->
     <div
-      class="flex items-center gap-3 bg-pink-100/80 p-1 px-2 border border-rose-400 rounded-2xl"
+      class="flex items-center gap-2 sm:gap-3 bg-pink-100/80 p-1 px-2 border border-rose-400 rounded-xl sm:rounded-2xl"
     >
-      <a href="/index.html" class="flex items-center gap-2">
+      <a href="/index.html" class="flex items-center gap-1 sm:gap-2">
         <img
           src="../public/icon.png"
           alt="Sunny Delights logo"
-          class="h-6 sm:h-8 w-auto"
+          class="h-5 w-auto sm:h-8"
         />
         <h1
-          class="font-extrabold italic text-rose-600 text-sm sm:text-base tracking-wide"
+          class="font-extrabold italic text-rose-600 text-xs sm:text-base tracking-wide"
         >
           Sunny Delights
         </h1>
@@ -92,19 +92,45 @@
           >FAQ</span
         >
       </a>
+
+      <!-- Cart icon wrapper -->
+      <a href="/pages/checkout.html" class="relative inline-block">
+        <!-- SVG cart icon (replace with any cute icon you like) -->
+        <i class="ri-shopping-basket-2-fill text-2xl"></i>
+
+        <!-- Counter -->
+        <span
+          id="cartCountHeader"
+          class="absolute -top-2 -right-3.5 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+        >
+          0
+        </span>
+      </a>
     </div>
 
     <!-- Mobile menu button -->
     <div class="flex items-center lg:hidden">
+      <!-- Mobile cart button -->
+      <a
+        href="/pages/checkout.html"
+        class="ml-3 flex items-center gap-1 p-1 rounded text-white font-semibold"
+      >
+        <i class="ri-shopping-basket-2-fill text-xl"></i>
+        <span
+          id="cartCountMobile"
+          class="relative -top-1.5 -left-2 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+          >0</span
+        >
+      </a>
       <button
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-2 text-white bg-rose-600/80 border border-rose-400 hover:bg-rose-600/70"
+        class="inline-flex items-center justify-center rounded-md p-1 text-white bg-rose-600/80 border border-rose-400 hover:bg-rose-600/70"
         @click="open = !open"
         :aria-expanded="open"
         aria-label="Toggle menu"
       >
         <svg
-          class="h-6 w-6"
+          class="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"

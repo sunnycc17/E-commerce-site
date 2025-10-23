@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/public/icon.png" />
+    <title>Sunny Delights | Checkout</title>
+    <link rel="stylesheet" href="/src/output.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- HEADER -->
+    <div id="header"></div>
+
+    <!-- CHECKOUT SECTION -->
+    <main class="flex-1 p-6 sm:p-10 mt-20">
+      <h1 class="text-2xl sm:text-3xl font-bold mb-6">Checkout</h1>
+      <div id="checkoutItems" class="space-y-4"></div>
+      <div class="mt-6 text-lg sm:text-xl font-bold">
+        Total: $<span id="checkoutTotal">0.00</span>
+      </div>
+      <div class="mt-6">
+        <button
+          id="paypalButton"
+          class="bg-rose-600 text-white px-6 py-2 rounded hover:bg-rose-700"
+        >
+          Pay with PayPal Sandbox
+        </button>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load cart from localStorage
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.forEach((item) => {
+          item.price = Number(item.price);
+          item.quantity = Number(item.quantity) || 1;
+        });
+
+        const checkoutItems = document.getElementById("checkoutItems");
+        const checkoutTotal = document.getElementById("checkoutTotal");
+
+        function updateCheckout() {
+          checkoutItems.innerHTML = cart.length
+            ? cart
+                .map(
+                  (i, idx) => `
+            <div class="flex justify-between items-center border-b py-2">
+              <div>
+                <span class="font-semibold">${i.name}</span> 
+                <span class="text-gray-600">x${i.quantity}</span>
+                <span class="text-rose-600 font-semibold"> $${(
+                  i.price * i.quantity
+                ).toFixed(2)}</span>
+              </div>
+              <button class="remove-item border border-rose-600 text-rose-600 px-2 py-1 rounded hover:bg-rose-700 hover:text-white" data-index="${idx}">Remove</button>
+            </div>
+          `
+                )
+                .join("")
+            : '<p class="text-gray-700">Your cart is empty.</p>';
+
+          checkoutTotal.textContent = cart
+            .reduce((sum, i) => sum + i.price * i.quantity, 0)
+            .toFixed(2);
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        // Remove item handler
+        checkoutItems.addEventListener("click", (e) => {
+          if (e.target.classList.contains("remove-item")) {
+            const idx = Number(e.target.dataset.index);
+            cart.splice(idx, 1);
+            updateCheckout();
+          }
+        });
+
+        // PayPal button click (sandbox)
+        document
+          .getElementById("paypalButton")
+          .addEventListener("click", () => {
+            alert("This would redirect to PayPal Sandbox. Implement API next.");
+          });
+
+        updateCheckout();
+      });
+    </script>
+
+    <script src="/js/inject.js"></script>
+    <script>
+      // Inject header/footer
+      document.addEventListener("DOMContentLoaded", async () => {
+        await inject("header", "/components/header.html");
+        await inject("footer", "/components/footer.html");
+      });
+    </script>
+
+    <!-- ALPINE -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
+      defer
+    ></script>
+  </body>
+</html>
