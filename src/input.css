@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-  background-color: #FFE4EC;
+  background-color: #ffe4ec;
 }
 
 [x-cloak] {
@@ -40,7 +40,6 @@ body {
   }
 }
 
-
 #hits-dropdown {
   width: 100%;
   min-width: inherit;
@@ -55,16 +54,30 @@ body {
   z-index: 50;
 }
 
-
 @keyframes wobble {
-  0%, 100% { transform: rotate(0deg); }
-  15% { transform: rotate(-5deg); }
-  30% { transform: rotate(3deg); }
-  45% { transform: rotate(-3deg); }
-  60% { transform: rotate(2deg); }
-  75% { transform: rotate(-1deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(3deg);
+  }
+  45% {
+    transform: rotate(-3deg);
+  }
+  60% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
 }
 
 .wobble-on-hover:hover {
   animation: wobble 0.8s ease-in-out;
 }
+
+

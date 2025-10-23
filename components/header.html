@@ -9,17 +9,10 @@
     class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans text-white"
   >
     <!-- Logo -->
-    <div
-      class="flex items-center gap-2 sm:gap-3 bg-pink-100/80 p-1 px-2 border border-rose-400 rounded-xl sm:rounded-2xl"
-    >
+    <div class="flex items-center">
       <a href="/index.html" class="flex items-center gap-1 sm:gap-2">
-        <img
-          src="/public/icon.png"
-          alt="Sunny Delights logo"
-          class="h-5 w-auto sm:h-8"
-        />
         <h1
-          class="font-extrabold italic text-rose-600 text-xs sm:text-base tracking-wide"
+          class="font-extrabold italic text-white/70 text-sm sm:text-xl uppercase tracking-wider"
         >
           Sunny Delights
         </h1>
@@ -96,7 +89,7 @@
       <!-- Cart icon wrapper -->
       <a href="/pages/checkout.html" class="relative inline-block">
         <!-- SVG cart icon (replace with any cute icon you like) -->
-        <i class="ri-shopping-basket-2-fill text-2xl"></i>
+        <i class="ri-shopping-basket-2-fill text-2xl text-white/70 hover:animate-bounce"></i>
 
         <!-- Counter -->
         <span
@@ -115,7 +108,7 @@
         href="/pages/checkout.html"
         class="ml-3 flex items-center gap-1 p-1 rounded text-white font-semibold"
       >
-        <i class="ri-shopping-basket-2-fill text-xl"></i>
+        <i class="ri-shopping-basket-2-fill text-xl text-white/70"></i>
         <span
           id="cartCountMobile"
           class="relative -top-1.5 -left-2 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
@@ -124,7 +117,7 @@
       </a>
       <button
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-1 text-white bg-rose-600/80 border border-rose-400 hover:bg-rose-600/70"
+        class="inline-flex items-center justify-center rounded-md p-1 text-white"
         @click="open = !open"
         :aria-expanded="open"
         aria-label="Toggle menu"
@@ -187,14 +180,14 @@
     </div>
 
     <!-- Search Input -->
-    <div class="mt-4 border-t border-white/20 pt-4 px-6">
+    <div class="mt-4 border-t border-white/20 pt-4 px-4">
       <label for="mobile-searchbox" class="sr-only">Search candies</label>
       <div class="relative">
         <input
           id="mobile-searchbox"
           type="text"
           placeholder="Search candies..."
-          class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
+          class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 text-xs focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
         />
         <div
           class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
