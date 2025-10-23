@@ -57,9 +57,6 @@
       content="https://sunnycc17.github.io/E-commerce-site/public/meta.png"
     />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="public/icon.png" />
-
     <!-- remix icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
@@ -69,248 +66,7 @@
   </head>
   <body>
     <!-- HEADER AND NAVI BAR -->
-    <header
-      class="fixed top-0 z-[9999] w-full border-b bg-rose-500/80 backdrop-blur-sm border-rose-400"
-      x-data="{ open: false }"
-      aria-label="Main site header"
-      style="text-shadow: 2px 2px 4px rgba(66, 62, 62, 0.7)"
-    >
-      <nav
-        class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans text-white"
-      >
-        <!-- Logo -->
-        <div
-          class="flex items-center gap-3 bg-pink-100/80 p-1 px-2 border border-rose-400 rounded-2xl"
-        >
-          <a href="#home" class="flex items-center gap-2">
-            <img
-              src="public/icon.png"
-              alt="Sunny Delights logo"
-              class="h-6 sm:h-8 w-auto"
-            />
-            <h1
-              class="font-extrabold italic text-rose-600 text-sm sm:text-base tracking-wide"
-            >
-              Sunny Delights
-            </h1>
-          </a>
-        </div>
-
-        <!-- Search -->
-        <div
-          class="hidden sm:flex flex-1 items-center justify-center mx-4 relative"
-        >
-          <div class="relative w-full max-w-md">
-            <label for="searchbox" class="sr-only">Search candies</label>
-            <input
-              id="searchbox"
-              type="text"
-              placeholder="Search candies..."
-              class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
-            />
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                class="h-5 w-5 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-                />
-              </svg>
-            </div>
-            <ul
-              id="hits-dropdown"
-              class="absolute top-full left-0 w-full mt-1 bg-white text-rose-800 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50"
-            ></ul>
-          </div>
-        </div>
-
-        <!-- Desktop links -->
-        <div class="hidden lg:flex items-center gap-8 font-medium text-white">
-          <a
-            href="index.html"
-            class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-          >
-            <span class="inline-block transition-transform hover:translate-x-1"
-              >Home</span
-            >
-          </a>
-          <a
-            href="aboutus.html"
-            class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-          >
-            <span class="inline-block transition-transform hover:translate-x-1"
-              >About</span
-            >
-          </a>
-          <a
-            href="contactus.html"
-            class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-          >
-            <span class="inline-block transition-transform hover:translate-x-1"
-              >Contact</span
-            >
-          </a>
-          <a
-            href="faq.html"
-            class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-          >
-            <span class="inline-block transition-transform hover:translate-x-1"
-              >FAQ</span
-            >
-          </a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="flex items-center lg:hidden">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-md p-2 text-white bg-rose-600/80 border border-rose-400 hover:bg-rose-600/70"
-            @click="open = !open"
-            :aria-expanded="open"
-            aria-label="Toggle menu"
-          >
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-          </button>
-        </div>
-      </nav>
-
-      <aside
-        id="mobileSidebar"
-        x-show="open"
-        x-cloak
-        x-transition:enter="transform transition ease-in-out duration-300"
-        x-transition:enter-start="translate-x-full opacity-0"
-        x-transition:enter-end="translate-x-0 opacity-100"
-        x-transition:leave="transform transition ease-in-out duration-250"
-        x-transition:leave-start="translate-x-0 opacity-100"
-        x-transition:leave-end="translate-x-full opacity-0"
-        @keydown.escape.window="open = false"
-        @click.outside="open = false"
-        class="fixed inset-y-0 right-0 w-3/4 bg-rose-500/90 backdrop-blur-sm text-white flex flex-col h-screen overflow-hidden border-l border-rose-400 font-sans"
-        role="dialog"
-        aria-modal="true"
-      >
-        <!-- Top bar with close button only -->
-        <div class="flex items-center justify-end px-6 pt-6">
-          <button
-            type="button"
-            class="rounded-md p-2.5 text-white hover:bg-rose-600/70"
-            @click="open = false"
-            aria-label="Close menu"
-          >
-            <svg
-              class="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Search Input -->
-        <div class="mt-4 border-t border-white/20 pt-4 px-6">
-          <label for="mobile-searchbox" class="sr-only">Search candies</label>
-          <div class="relative">
-            <input
-              id="mobile-searchbox"
-              type="text"
-              placeholder="Search candies..."
-              class="w-full pl-10 pr-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-white placeholder-white bg-rose-400/60 border border-white/10"
-            />
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                class="h-5 w-5 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-                />
-              </svg>
-            </div>
-            <ul
-              id="mobile-hits-dropdown"
-              class="absolute top-full left-0 w-full mt-1 bg-white text-rose-800 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50"
-            ></ul>
-          </div>
-        </div>
-
-        <!-- Nav Links -->
-        <nav class="mt-6 px-6 pb-6 flex flex-col justify-start space-y-3">
-          <a
-            href="#home"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >Home</a
-          >
-          <a
-            href="aboutus.html"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >About</a
-          >
-          <a
-            href="contactus.html"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >Contact</a
-          >
-          <a
-            href="faq.html"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >FAQ</a
-          >
-          <a
-            href="events.html"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >Events</a
-          >
-          <a
-            href="jobs.html"
-            class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
-            @click="open = false"
-            >Jobs</a
-          >
-        </nav>
-      </aside>
-    </header>
+    <div id="header"></div>
 
     <!-- HOME -->
     <section
@@ -582,7 +338,7 @@
                 days. Your taste buds will thank you!
               </p>
               <a
-                href="#"
+                href="/pages/blog.html#blog-1"
                 class="text-rose-700 font-semibold hover:underline mt-auto"
                 >Read More →</a
               >
@@ -606,7 +362,7 @@
                 bean to bar.
               </p>
               <a
-                href="#"
+                href="/pages/blog.html#blog-2"
                 class="text-rose-700 font-semibold hover:underline mt-auto"
                 >Read More →</a
               >
@@ -630,7 +386,7 @@
                 tips from our experts.
               </p>
               <a
-                href="#"
+                href="/pages/blog.html#blog-3"
                 class="text-rose-700 font-semibold hover:underline mt-auto"
                 >Read More →</a
               >
@@ -641,123 +397,18 @@
     </section>
 
     <!-- FOOTER -->
-    <footer
-      class="bg-rose-500/80 text-white font-sans border-t border-rose-400"
-      style="text-shadow: 2px 2px 4px rgba(66, 62, 62, 0.7)"
-    >
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 grid grid-cols-1 md:grid-cols-3 gap-8"
-      >
-        <!-- Socials -->
-        <div class="flex flex-col space-y-2">
-          <p
-            class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg"
-          >
-            Follow Us
-          </p>
-          <a
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2">
-              <i class="ri-tiktok-fill"></i> TikTok
-            </span>
-          </a>
-          <a
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2">
-              <i class="ri-twitter-x-fill"></i> Twitter
-            </span>
-          </a>
-          <a
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2">
-              <i class="ri-instagram-fill"></i> Instagram
-            </span>
-          </a>
-        </div>
+    <div id="footer"></div>
 
-        <!-- Information -->
-        <div class="flex flex-col space-y-2">
-          <p
-            class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg"
-          >
-            Information
-          </p>
-          <a
-            href="aboutus.html"
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2"
-              >About</span
-            >
-          </a>
-          <a
-            href="contactus.html"
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2"
-              >Contact</span
-            >
-          </a>
-          <a
-            href="faq.html"
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2"
-              >FAQs</span
-            >
-          </a>
-        </div>
-
-        <!-- More Sweetness -->
-        <div class="flex flex-col space-y-2">
-          <p
-            class="uppercase font-extrabold text-rose-200 border-b-4 border-pink-300 w-max pb-1 tracking-wide text-lg"
-          >
-            More Sweetness
-          </p>
-          <a
-            href="events.html"
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2"
-              >Events</span
-            >
-          </a>
-          <a
-            href="jobs.html"
-            class="text-white transition duration-300 cursor-pointer font-medium px-2 py-1 rounded hover:bg-rose-600/70"
-          >
-            <span class="inline-block transition-transform hover:translate-x-2"
-              >Jobs</span
-            >
-          </a>
-          <span class="italic text-pink-100 mt-2 max-w-xs font-light">
-            “Life is sweeter with sprinkles on top!” 🍬
-          </span>
-        </div>
-      </div>
-
-      <div class="mt-6 border-t border-white/20">
-        <p class="py-2 text-sm text-center px-4 sm:px-6 lg:px-8">
-          <span class="text-white italic">© 2025 Sunny Delights |</span>
-          <span class="font-serif text-white">All rights reserved.</span>
-        </p>
-      </div>
-    </footer>
-
-    <!-- alpine js -->
+    <!-- ALPINE -->
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@latest/dist/cdn.min.js"
       defer
     ></script>
 
-    <!-- swiper js -->
+    <!-- SWIPER -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Algolia scripts -->
+    <!-- ALGOLIA -->
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
     <script>
       const swiperEl = document.querySelector(".swiper");
@@ -779,9 +430,9 @@
         });
       }
     </script>
-
-    <script src="cart.js"></script>
-    <script src="shop.js"></script>
-    <script src="index.js"></script>
+    <script src="js/inject.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
