@@ -1,16 +1,16 @@
 <header
-  class="fixed top-0 z-[9999] blackpink w-full border-b border-rose-400 backdrop-blur-sm"
+  class="fixed top-0 z-[9999] magenta w-full border-b border-rose-400 backdrop-blur-sm"
   x-data="{ open: false }"
   aria-label="Main site header"
 >
   <nav
-    class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans text-white"
+    class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans"
   >
     <!-- Logo -->
     <div class="flex items-center">
       <a id="logo" href="/index.html" class="flex items-center gap-1 sm:gap-2">
         <h1
-          class="font-extrabold italic text-white/70 text-sm sm:text-xl uppercase tracking-wider"
+          class="font-extrabold italic letters text-sm sm:text-xl uppercase tracking-wider"
         >
           Sunny Delights
         </h1>
@@ -49,51 +49,45 @@
       </div>
     </div>
 
-    <!-- Desktop links + cart -->
-    <div class="hidden lg:flex items-center gap-6">
-      <!-- Nav links -->
-      <div class="flex items-center gap-8 font-medium text-white">
-        <a
-          href="#home"
-          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-        >
-          <span class="inline-block transition-transform hover:translate-x-1"
-            >Home</span
-          >
-        </a>
-        <a
-          href="../pages/about.html"
-          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-        >
-          <span class="inline-block transition-transform hover:translate-x-1"
-            >About</span
-          >
-        </a>
-        <a
-          href="../pages/contact.html"
-          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-        >
-          <span class="inline-block transition-transform hover:translate-x-1"
-            >Contact</span
-          >
-        </a>
-        <a
-          href="../pages/faq.html"
-          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-        >
-          <span class="inline-block transition-transform hover:translate-x-1"
-            >FAQ</span
-          >
-        </a>
-      </div>
+    <!-- DESKTOP LINKS -->
+    <div class="hidden lg:flex items-center gap-8 font-medium letters relative">
+      <a href="#home" class="group relative px-3 py-1">
+        Home
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+        ></span>
+      </a>
+
+      <a href="../pages/about.html" class="group relative px-3 py-1">
+        About
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+        ></span>
+      </a>
+
+      <a href="../pages/contact.html" class="group relative px-3 py-1">
+        Contact
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+        ></span>
+      </a>
+
+      <a href="../pages/faq.html" class="group relative px-3 py-1">
+        FAQ
+        <span
+          class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"
+        ></span>
+      </a>
     </div>
 
     <div class="flex">
       <!-- Single responsive cart (visible on all breakpoints) -->
-      <a id="cart" href="/pages/checkout.html" class="relative mx-1 lg:ml-9">
-        <i
-          class="ri-shopping-basket-2-fill text-xl sm:text-2xl text-white/70 hover:animate-bounce"
-        ></i>
+      <a
+        id="cart"
+        href="/pages/checkout.html"
+        class="relative mx-1 lg:ml-9 letters smooth-bounce"
+      >
+        <i class="ri-shopping-basket-2-fill text-xl sm:text-2xl"></i>
         <span
           id="cartCountHeader"
           class="absolute -top-1.5 -right-2.5 sm:-top-2 sm:-right-3.5 text-[0.55rem] sm:text-xs font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center"
@@ -141,14 +135,14 @@
     x-transition:leave-end="translate-x-full opacity-0"
     @keydown.escape.window="open = false"
     @click.outside="open = false"
-    class="fixed inset-y-0 right-0 w-3/4 bg-rose-500/90 backdrop-blur-sm text-white flex flex-col h-screen overflow-hidden border-l border-rose-400 font-sans"
+    class="fixed inset-y-0 right-0 w-3/4 magenta backdrop-blur-sm text-white flex flex-col h-screen overflow-hidden border-l border-rose-400 font-sans"
     role="dialog"
     aria-modal="true"
   >
     <div class="flex items-center justify-end px-6 pt-6">
       <button
         type="button"
-        class="rounded-md p-2.5 text-white hover:bg-rose-600/70"
+        class="rounded-md p-2.5"
         @click="open = false"
         aria-label="Close menu"
       >
@@ -204,37 +198,37 @@
     <nav class="mt-6 px-6 pb-6 flex flex-col justify-start space-y-3">
       <a
         href="../index.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >Home</a
       >
       <a
         href="../pages/about.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >About</a
       >
       <a
         href="../pages/contact.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >Contact</a
       >
       <a
         href="../pages/faq.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >FAQ</a
       >
       <a
         href="../pages/events.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >Events</a
       >
       <a
         href="../pages/jobs.html"
-        class="block px-3 py-2 font-medium hover:bg-rose-600/70 rounded"
+        class="block px-3 py-2 font-medium hover:bg-rose-400/60 rounded"
         @click="open = false"
         >Jobs</a
       >

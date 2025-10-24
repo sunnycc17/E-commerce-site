@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .map(
             (p) => `
     <div class="bg-rose-400/50 p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col">
-      <img src="${p.image}" alt="Product image of ${p.name}">
+      <img src="${p.image}" alt="Product image of ${p.name}"
       class="w-full h-36 sm:h-40 md:h-44 lg:h-48 object-cover rounded-md mb-3 sm:mb-4">
       <h2 class="text-md sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">${
         p.name

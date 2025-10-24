@@ -80,11 +80,38 @@ body {
   animation: wobble 0.8s ease-in-out;
 }
 
-.blackpink {
-  background-color: #a80054;
+:root {
+  --bg-color: #a80054;
+  --highlight-color: #d6336c;
+  --text-color: #eceaea;
+}
+
+.magenta {
+  background-color: var(--bg-color);
+}
+
+.highlight {
+  background-color: var(--highlight-color);
+}
+
+.letters {
+  color: var(--text-color);
 }
 
 .home-page #logo {
   pointer-events: none;
   cursor: default;
+}
+
+@keyframes smooth-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.smooth-bounce:hover {
+  animation: smooth-bounce 0.5s ease-in-out 300;
 }
