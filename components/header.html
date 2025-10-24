@@ -1,16 +1,15 @@
 <!-- HEADER AND NAVI BAR -->
 <header
-  class="fixed top-0 z-[9999] w-full border-b bg-rose-500/80 backdrop-blur-sm border-rose-400 mb-5"
+  class="fixed top-0 z-[9999] w-full border-b blackpink backdrop-blur-sm border-rose-400 mb-5"
   x-data="{ open: false }"
   aria-label="Main site header"
-  style="text-shadow: 2px 2px 4px rgba(66, 62, 62, 0.7)"
 >
   <nav
     class="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8 font-sans text-white"
   >
     <!-- Logo -->
     <div class="flex items-center">
-      <a href="/index.html" class="flex items-center gap-1 sm:gap-2">
+      <a id="logo" href="/index.html" class="flex items-center gap-1 sm:gap-2">
         <h1
           class="font-extrabold italic text-white/70 text-sm sm:text-xl uppercase tracking-wider"
         >
@@ -53,10 +52,7 @@
 
     <!-- Desktop links -->
     <div class="hidden lg:flex items-center gap-8 font-medium text-white">
-      <a
-        href="/index.html"
-        class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-      >
+      <a href="#home" class="hover:bg-rose-600/70 px-3 py-1 rounded transition">
         <span class="inline-block transition-transform hover:translate-x-1"
           >Home</span
         >
@@ -85,36 +81,26 @@
           >FAQ</span
         >
       </a>
-
-      <!-- Cart icon wrapper -->
-      <a href="/pages/checkout.html" class="relative inline-block">
-        <!-- SVG cart icon (replace with any cute icon you like) -->
-        <i class="ri-shopping-basket-2-fill text-2xl text-white/70 hover:animate-bounce"></i>
-
-        <!-- Counter -->
-        <span
-          id="cartCountHeader"
-          class="absolute -top-2 -right-3.5 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
-        >
-          0
-        </span>
-      </a>
     </div>
+
+    <!-- Cart icon wrapper -->
+    <a href="/pages/checkout.html" class="relative inline-block">
+      <!-- SVG cart icon (replace with any cute icon you like) -->
+      <i
+        class="ri-shopping-basket-2-fill text-2xl text-white/70 hover:animate-bounce"
+      ></i>
+
+      <!-- Counter -->
+      <span
+        id="cartCountHeader"
+        class="absolute -top-2 -right-3.5 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
+      >
+        0
+      </span>
+    </a>
 
     <!-- Mobile menu button -->
     <div class="flex items-center lg:hidden">
-      <!-- Mobile cart button -->
-      <a
-        href="/pages/checkout.html"
-        class="ml-3 flex items-center gap-1 p-1 rounded text-white font-semibold"
-      >
-        <i class="ri-shopping-basket-2-fill text-xl text-white/70"></i>
-        <span
-          id="cartCountMobile"
-          class="relative -top-1.5 -left-2 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
-          >0</span
-        >
-      </a>
       <button
         type="button"
         class="inline-flex items-center justify-center rounded-md p-1 text-white"

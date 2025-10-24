@@ -80,4 +80,11 @@ body {
   animation: wobble 0.8s ease-in-out;
 }
 
+.blackpink {
+  background-color: #a80054;
+}
 
+.home-page #logo {
+  pointer-events: none;
+  cursor: default;
+}
