@@ -1,6 +1,5 @@
-<!-- HEADER AND NAVI BAR -->
 <header
-  class="fixed top-0 z-[9999] w-full border-b blackpink backdrop-blur-sm border-rose-400 mb-5"
+  class="fixed top-0 z-[9999] blackpink w-full border-b border-rose-400 backdrop-blur-sm"
   x-data="{ open: false }"
   aria-label="Main site header"
 >
@@ -18,7 +17,7 @@
       </a>
     </div>
 
-    <!-- Search -->
+    <!-- Search (desktop) -->
     <div
       class="hidden sm:flex flex-1 items-center justify-center mx-4 relative"
     >
@@ -50,81 +49,86 @@
       </div>
     </div>
 
-    <!-- Desktop links -->
-    <div class="hidden lg:flex items-center gap-8 font-medium text-white">
-      <a href="#home" class="hover:bg-rose-600/70 px-3 py-1 rounded transition">
-        <span class="inline-block transition-transform hover:translate-x-1"
-          >Home</span
+    <!-- Desktop links + cart -->
+    <div class="hidden lg:flex items-center gap-6">
+      <!-- Nav links -->
+      <div class="flex items-center gap-8 font-medium text-white">
+        <a
+          href="#home"
+          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
         >
-      </a>
-      <a
-        href="../pages/about.html"
-        class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-      >
-        <span class="inline-block transition-transform hover:translate-x-1"
-          >About</span
+          <span class="inline-block transition-transform hover:translate-x-1"
+            >Home</span
+          >
+        </a>
+        <a
+          href="../pages/about.html"
+          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
         >
-      </a>
-      <a
-        href="../pages/contact.html"
-        class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-      >
-        <span class="inline-block transition-transform hover:translate-x-1"
-          >Contact</span
+          <span class="inline-block transition-transform hover:translate-x-1"
+            >About</span
+          >
+        </a>
+        <a
+          href="../pages/contact.html"
+          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
         >
-      </a>
-      <a
-        href="../pages/faq.html"
-        class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
-      >
-        <span class="inline-block transition-transform hover:translate-x-1"
-          >FAQ</span
+          <span class="inline-block transition-transform hover:translate-x-1"
+            >Contact</span
+          >
+        </a>
+        <a
+          href="../pages/faq.html"
+          class="hover:bg-rose-600/70 px-3 py-1 rounded transition"
         >
-      </a>
+          <span class="inline-block transition-transform hover:translate-x-1"
+            >FAQ</span
+          >
+        </a>
+      </div>
     </div>
 
-    <!-- Cart icon wrapper -->
-    <a href="/pages/checkout.html" class="relative inline-block">
-      <!-- SVG cart icon (replace with any cute icon you like) -->
-      <i
-        class="ri-shopping-basket-2-fill text-2xl text-white/70 hover:animate-bounce"
-      ></i>
-
-      <!-- Counter -->
-      <span
-        id="cartCountHeader"
-        class="absolute -top-2 -right-3.5 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center"
-      >
-        0
-      </span>
-    </a>
-
-    <!-- Mobile menu button -->
-    <div class="flex items-center lg:hidden">
-      <button
-        type="button"
-        class="inline-flex items-center justify-center rounded-md p-1 text-white"
-        @click="open = !open"
-        :aria-expanded="open"
-        aria-label="Toggle menu"
-      >
-        <svg
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
+    <div class="flex">
+      <!-- Single responsive cart (visible on all breakpoints) -->
+      <a id="cart" href="/pages/checkout.html" class="relative mx-1 lg:ml-9">
+        <i
+          class="ri-shopping-basket-2-fill text-xl sm:text-2xl text-white/70 hover:animate-bounce"
+        ></i>
+        <span
+          id="cartCountHeader"
+          class="absolute -top-1.5 -right-2.5 sm:-top-2 sm:-right-3.5 text-[0.55rem] sm:text-xs font-bold w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center"
+          >0</span
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
+      </a>
+
+      <!-- Mobile cart + hamburger -->
+      <div class="flex items-center gap-4 lg:hidden">
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-md p-1 text-white"
+          @click="open = !open"
+          :aria-expanded="open"
+          aria-label="Toggle menu"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
+  <!-- Mobile sidebar -->
   <aside
     id="mobileSidebar"
     x-show="open"
@@ -141,7 +145,6 @@
     role="dialog"
     aria-modal="true"
   >
-    <!-- Top bar with close button only -->
     <div class="flex items-center justify-end px-6 pt-6">
       <button
         type="button"
@@ -165,7 +168,7 @@
       </button>
     </div>
 
-    <!-- Search Input -->
+    <!-- Mobile search -->
     <div class="mt-4 border-t border-white/20 pt-4 px-4">
       <label for="mobile-searchbox" class="sr-only">Search candies</label>
       <div class="relative">
@@ -197,7 +200,7 @@
       </div>
     </div>
 
-    <!-- Nav Links -->
+    <!-- Mobile links -->
     <nav class="mt-6 px-6 pb-6 flex flex-col justify-start space-y-3">
       <a
         href="../index.html"
