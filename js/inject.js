@@ -5,5 +5,5 @@ async function inject(id, file) {
   if (res.ok) el.innerHTML = await res.text();
 }
 
-inject("header", "../components/header.html");
-inject("footer", "../components/footer.html");
+inject("header", "./components/header.html");
+inject("footer", "./components/footer.html");
