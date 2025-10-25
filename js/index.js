@@ -11,36 +11,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // Make this global inside DOMContentLoaded
   let currentProducts = [];
 
-  function renderProducts(container, hits) {
-    currentProducts = hits; // store all hits for modal reference
-    container.innerHTML = hits.length
-      ? hits
-          .map(
-            (p) => `
-    <div class="bg-rose-400/50 p-3 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col">
-      <img src="${p.image}" alt="Product image of ${p.name}"
-      class="w-full h-36 sm:h-40 md:h-44 lg:h-48 object-cover rounded-md mb-3 sm:mb-4">
-      <h2 class="text-md sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">${
-        p.name
-      }</h2>
-      <p class="text-rose-600 font-semibold mb-2 sm:mb-3">$${p.price.toFixed(
-        2
-      )}</p>
-      <div class="flex flex-col sm:flex-row gap-2">
-        <button class="add-to-cart bg-rose-600/80 text-white px-3 py-1 rounded hover:bg-rose-700 cursor-pointer flex-1"
-          data-id="${p.objectID}" data-name="${p.name}" data-price="${p.price}">
-          Add to Cart
-        </button>
-        <button class="view-product border border-rose-600 text-rose-600 bg-pink-50 px-3 py-1 rounded hover:bg-rose-700 hover:text-white cursor-pointer flex-1"
-          data-id="${p.objectID}">
-          View Product
-        </button>
-      </div>
-    </div>`
-          )
-          .join("")
-      : `<p class="text-gray-700 col-span-full text-center">No products available.</p>`;
-  }
+function renderProducts(container, hits) {
+  currentProducts = hits; // store all hits for modal reference
+  container.innerHTML = hits.length
+    ? hits
+        .map(
+          (p) => `
+<div class="highlight flex flex-col rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all bg-gradient-to-b from-[#FFEEF5] to-[#FFE0EB]">
+  
+  <!-- Image -->
+  <div class="overflow-hidden">
+    <img src="${p.image}" alt="Product image of ${p.name}"
+      class="w-full h-40 sm:h-48 md:h-52 object-cover rounded-t-3xl transform hover:scale-105 transition duration-300">
+  </div>
+  
+  <!-- Content -->
+  <div class="p-4 flex flex-col gap-2">
+    <h2 class="text-lg sm:text-xl font-bold text-gray-900">${p.name}</h2>
+    <p class="text-[#A80054] font-semibold">$${p.price.toFixed(2)}</p>
+  </div>
+  
+  <!-- Buttons container -->
+  <div class="flex flex-col sm:flex-row w-full bg-[#A80054] p-3 gap-2 rounded-b-3xl mt-auto">
+    
+    <button class="relative group letters overflow-hidden bg-transparent text-white px-3 py-2 flex-1 cursor-pointer font-semibold">
+      Add to Cart
+      <span class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+    </button>
+    
+    <button class="relative group letters overflow-hidden bg-transparent text-white px-3 py-2 flex-1 cursor-pointer font-semibold">
+      View Product
+      <span class="absolute bottom-0 left-0 w-full h-1 bg-rose-400 rounded-full scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+    </button>
+    
+  </div>
+</div>`
+        )
+        .join("")
+    : `<p class="text-white col-span-full text-center">No products available.</p>`;
+}
+
 
   index
     .search("", { filters: "new:true", hitsPerPage: 1000 })

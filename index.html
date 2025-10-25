@@ -74,13 +74,11 @@
       class="flex flex-col justify-center items-center pt-36 py-12 mt-12"
     >
       <div class="w-full max-w-7xl px-4 sm:px-6">
-        <!-- Heading -->
+        <!-- INTRO -->
         <div class="text-center justify-center items-center">
-          <div
-            class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-4"
-          >
+          <h1 class="uppercase font-bold text-2xl sm:text-3xl mb-4">
             Soft as a Cloud Sweet as a Dream
-          </div>
+          </h1>
           <p class="text-gray-700/80 sm:text-base md:text-lg font-medium">
             Indulge in sweetness crafted with love
           </p>
@@ -90,17 +88,17 @@
           </p>
         </div>
 
-        <!-- CTA Button with Wobble -->
+        <!-- CTA BUTTON -->
         <div class="mt-8 flex justify-center">
           <a
             href="/pages/shop.html"
-            class="bg-rose-600 text-white font-semibold px-10 py-4 rounded-2xl shadow-lg sm:w-auto md:w-1/4 text-center transition-all duration-300 hover:shadow-xl wobble-on-hover"
+            class="relative inline-block font-bold text-white px-12 py-4 rounded-full bg-gradient-to-b from-[#A80054] via-[#FF1E66] to-[#FF5C99] shadow-lg shadow-[#A80054]/50 text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#A80054]/70 wobble-on-hover"
           >
             Shop Now
           </a>
         </div>
 
-        <!-- Swiper Carousel -->
+        <!-- SWIPER -->
         <div class="swiper w-full mt-12 z-10">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -180,23 +178,19 @@
     </div>
 
     <!-- NEW ARRIVALS AND BEST SELLERS -->
-    <section class="max-w-7xl flex flex-col items-center mx-auto">
-      <div class="w-full flex flex-col items-center p-6 sm:p-5">
-        <h1
-          class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-6 text-center"
-        >
+    <section id="display" class="max-w-7xl flex flex-col items-center mx-auto">
+     <!-- <div class="w-full flex flex-col items-center p-6 sm:p-5">
+        <h1 class="uppercase font-bold text-2xl sm:text-3xl mb-6 text-center">
           New Arrivals
         </h1>
         <div
           id="newProducts"
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-stretch"
         ></div>
-      </div>
+      </div> -->
 
       <div class="w-full flex flex-col items-center p-6 sm:p-5 mt-12">
-        <h1
-          class="uppercase font-bold text-2xl sm:text-3xl text-rose-600 mb-6 text-center"
-        >
+        <h1 class="uppercase font-bold text-2xl sm:text-3xl mb-6 text-center">
           Best Sellers
         </h1>
         <div
@@ -334,7 +328,6 @@
       const swiperEl = document.querySelector(".swiper");
       if (swiperEl) {
         new Swiper(".swiper", {
-          spaceBetween: 10,
           loop: true,
           pagination: { el: ".swiper-pagination", clickable: true },
           autoplay: { delay: 2500, disableOnInteraction: false },

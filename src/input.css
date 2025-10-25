@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+:root {
+  --bg-color: #a80054;
+  --highlight-color: #d6336c;
+  --text-color: #eceaea;
+}
+
 body {
   background-color: #ffe4ec;
 }
@@ -14,7 +20,7 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-  background-color: rgb(216, 171, 216) !important; /* Active dot color */
+  background-color: var(--bg-color) !important; /* Active dot color */
   opacity: 1;
 }
 
@@ -80,12 +86,6 @@ body {
   animation: wobble 0.8s ease-in-out;
 }
 
-:root {
-  --bg-color: #a80054;
-  --highlight-color: #d6336c;
-  --text-color: #eceaea;
-}
-
 .magenta {
   background-color: var(--bg-color);
 }
@@ -101,6 +101,11 @@ body {
 .home-page #logo {
   pointer-events: none;
   cursor: default;
+}
+
+#home h1,
+#display h1 {
+  color: var(--bg-color);
 }
 
 @keyframes smooth-bounce {
