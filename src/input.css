@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #ffe4ec;
+  background-color: #f5ebeb;
 }
 
 [x-cloak] {
@@ -101,11 +101,6 @@ body {
 .home-page #logo {
   pointer-events: none;
   cursor: default;
-}
-
-#home h1,
-#display h1 {
-  color: var(--bg-color);
 }
 
 @keyframes smooth-bounce {
